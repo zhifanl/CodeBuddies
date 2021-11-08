@@ -5,13 +5,36 @@
 /// REST API FOR /user/list
 require __DIR__ . "/inc/bootstrap.php";
 require PROJECT_ROOT_PATH . "/Controller/api/UserController.php";
+require PROJECT_ROOT_PATH . "/Controller/api/SoftwareCoursesController.php";
+require PROJECT_ROOT_PATH . "/Controller/api/StudentCourseListController.php";
+require PROJECT_ROOT_PATH . "/Controller/api/AdminController.php";
+
+
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode( '/', $uri );
 
+
 // localhost/demo/index.php/user/list
-if (count($uri)>3 && ((isset($uri[3]) && $uri[3] == 'user') || isset($uri[4]))) {
+if (count($uri)>3 && (isset($uri[3]) && $uri[3] == 'user') && $uri[4] == 'list') {
     $objFeedController = new UserController();
+    $strMethodName = $uri[4] . 'Action'; //$uri[3] is list, added Action to call the corresponding method
+    $objFeedController->{$strMethodName}($uri);
+}
+
+if (count($uri)>3 && (isset($uri[3]) && $uri[3] == 'admin') && $uri[4] == 'list') {
+    $objFeedController = new AdminController();
+    $strMethodName = $uri[4] . 'Action'; //$uri[3] is list, added Action to call the corresponding method
+    $objFeedController->{$strMethodName}($uri);
+}
+
+if (count($uri)>3 && (isset($uri[3]) && $uri[3] == 'software_courses') && $uri[4] == 'list') {
+    $objFeedController = new SoftwareCoursesController();
+    $strMethodName = $uri[4] . 'Action'; //$uri[3] is list, added Action to call the corresponding method
+    $objFeedController->{$strMethodName}($uri);
+}
+if (count($uri)>3 && (isset($uri[3]) && $uri[3] == 'student_course_list') && $uri[4] == 'list') {
+    $objFeedController = new StudentCourseListController();
     $strMethodName = $uri[4] . 'Action'; //$uri[3] is list, added Action to call the corresponding method
     $objFeedController->{$strMethodName}($uri);
 }
