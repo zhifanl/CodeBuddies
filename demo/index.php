@@ -1,7 +1,26 @@
 <?php
 // Include config file
-require_once "config.php";
- 
+
+
+/// REST API FOR /user/list
+require __DIR__ . "/inc/bootstrap.php";
+require PROJECT_ROOT_PATH . "/Controller/api/UserController.php";
+
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$uri = explode( '/', $uri );
+
+// localhost/demo/index.php/user/list
+if (count($uri)>3 && ((isset($uri[3]) && $uri[3] == 'user') || isset($uri[4]))) {
+    $objFeedController = new UserController();
+    $strMethodName = $uri[4] . 'Action'; //$uri[3] is list, added Action to call the corresponding method
+    $objFeedController->{$strMethodName}($uri);
+}
+
+
+
+
+///
+
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
@@ -100,7 +119,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./css/index.css">
     <style>
         body{ font: 14px sans-serif; }
         .wrapper{ width: 360px; padding: 20px; }

@@ -3,13 +3,13 @@
 session_start();
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: welcome.php");
-    exit;
-}
+// if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+//     header("location: welcome.php");
+//     exit;
+// }
  
 // Include config file
-require_once "config.php";
+require __DIR__ . "/inc/config.php";
  
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -54,7 +54,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     // Bind result variables
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $hashed_password)){
+                        if(password_verify($password, $hashed_password)&&$username!="admin"){
                             // Password is correct, so start a new session
                             session_start();
                             
@@ -65,7 +65,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             
                             // Redirect user to welcome page
                             header("location: welcome.php");
-                        } else{
+                        } 
+                        else if(password_verify($password, $hashed_password)&&$username=="admin"){
+                            // Password is correct, so start a new session
+                            session_start();
+                            
+                            // Store data in session variables
+                            $_SESSION["loggedin"] = true;
+                            $_SESSION["id"] = $id;
+                            $_SESSION["username"] = $username;                            
+                            
+                            // Redirect user to welcome page
+                            header("location: welcomeAdmin.php");
+                        }
+                        else{
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid username or password.";
                         }
@@ -93,7 +106,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="./css/login.css">
     <style>
         body{ font: 14px sans-serif; }
         .wrapper{ width: 360px; padding: 20px; }
@@ -124,7 +137,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+            <p>Don't have an account? <a href="index.php">Sign up now</a>.</p>
         </form>
     </div>
 </body>
