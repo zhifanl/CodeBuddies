@@ -1,0 +1,1121 @@
+
+@import url('https://fonts.googleapis.com/css?family=Dosis|Quicksand');
+
+body, header, ul, li, h1, h2, a{
+    margin: 0;
+    padding: 0;
+    font-family:    "Segoe UI", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+                    Helvetica, Arial, "Lucida Grande", sans-serif, "Quicksand";
+    list-style: none;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+    overflow-y: hidden;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+.content_mobile {
+    visibility: hidden;
+    overflow: hidden;
+    height: 0px;
+}
+
+
+
+@media only screen and (max-width:767px) {
+    
+    .content_desk {
+        visibility:collapse;
+        height: 0px;
+        overflow: hidden;
+    }
+
+    /* Make the mobile content visible */
+    .content_mobile {
+        visibility: visible;
+    }
+
+    /* Specifying the design constraints as well as spacing for the mobile nav */
+    .content_mobile .content_nav{
+        display:grid;
+        z-index: 5;
+        grid-template-columns: 1fr 1fr;
+        overflow: hidden;
+        height: 80px;
+        width: 100%;
+        background: #fdf6f6;
+        mix-blend-mode: normal;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px -4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 0px 0px 45px 0px;
+        position: fixed;
+        transition: height 0.2s;
+    }
+    
+    /* Make sure the list is hidden as well as set the sizing for the list */
+    .list {
+        visibility: hidden;
+        overflow: hidden;
+        box-sizing: content-box;
+        position: fixed;
+        top: 48px;
+        width: 100%;
+        height: 0px;
+        z-index: 4;
+        transition: height 0.2s;
+        text-align: center;
+    }
+    
+    /* Specify where this class should be */
+    .logo_mobile {
+        position:fixed;
+        width:50%;
+        height: 80px;
+    }
+
+    /* Specify where this class should be */
+    .logo_mobile_writing {
+        position: absolute;
+        width: 120px;
+        height: 40px;
+        left: 20px;
+        top: 20px;
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #FFFFFF;
+    }
+
+    /* Specify where this class should be, as well as the background image. */
+    .maple_image_mobile {
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        left: 140px;
+        top: 24px;
+        background-image: url("../icons/maple_image_white.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+    
+    /* Specify where this class should be */
+    .menu_mobile {
+        position: absolute;
+        width: 29.19%;
+        height: 80px;
+        right: 0%;
+        box-sizing: border-box;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    /* Specify where this class should be */
+    .top_button {
+        position: absolute;
+        width: 50px;
+        height: 6px;
+        border-radius: 45px;
+        background: #FFFFFF;
+        right: 20px;
+        top: 28px;
+        /* Specify on what attributes the class should transition on */
+        transition: transform 0.2s;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    .bottom_button {
+        position: absolute;
+        width: 40px;
+        height: 6px;
+        border-radius: 45px;
+        background: #ffffff;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        right: 20px;
+        top: 44px;
+        /* Specify on what attribute the class should transition on */
+        transition: transform 0.2s;
+    }
+    
+    /* Specify where this class should be, and its content sizing */
+    .list {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        z-index: 5;
+        top: 80px;
+        border-radius: 0px 0px 45px 0px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px -4px 4px rgba(0, 0, 0, 0.25);
+    }
+    
+    /* Specify where this class should be */
+    .dashboard_mobile {
+        position: relative;
+        width: 160px;
+        height: 40px;
+    
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    
+        color: #000000;
+    }
+    
+    /* Specify where this class should be */
+    .appoint_mobile {
+        position: relative;
+        width: 160px;
+        height: 40px;
+    
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    
+        color: #000000;
+    }
+    
+    /* Specify where this class should be */
+    .pres_mobile {
+        position: relative;
+        width: 160px;
+        height: 40px;
+    
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    
+        color: #000000;
+    }
+    
+    /* Specify where this class should be */
+    .tests_mobile {
+        position: relative;
+        width: 160px;
+        height: 40px;
+    
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    
+        color: #000000;
+    }
+
+        /* Specify where this class should be */
+        .logout_mobile {
+            position: relative;
+            width: 160px;
+            height: 40px;
+        
+            background: #FFFFFF;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 5px;
+            
+            font-family: Quicksand;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 30px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        
+            color: #000000;
+        }
+
+    /* These next lines are for specifying the mobile menu opening transition and behavior */
+
+    /* The menu should open to this height */
+    .menu_opening .content_mobile .content_nav {
+        height: 350px;
+    }
+    
+    /* The menu should stay at this height when it is "open" (active) */
+    .active .content_mobile .content_nav {
+        height: 350px;
+    }
+    
+    /* Reset the height for the mobile menu */
+    .menu_closing .content_mobile .content_nav {
+        height: 80px;
+    }
+    
+    /* Very similar to the above lines just for different classes */
+    .menu_opening .list {
+        visibility: visible;
+        height: 280px;
+        background: #FF6961;
+    }
+    
+    .active .list {
+        visibility: visible;
+        height: 280px;
+        background: #FF6961;
+    }
+    
+    .menu_closing .list {
+        visibility: hidden;
+        height: 0px;
+        background: #FF6961;
+    } 
+
+    .active .top_button {
+        transform: rotate(-45deg);
+    }
+
+    .menu_opening .bottom_button {
+        width: 50px;
+        top: 28px;
+    }
+
+    .active .bottom_button {
+        width: 50px;
+        height: 6px;
+        top: 28px;
+        transform: rotate(45deg);
+    }
+
+    /* Table styling */
+
+    th {
+        height: 30px;
+        border-bottom: 2px white solid;
+        border-radius: 10px;
+        font-family: Quicksand;
+    }
+    .trow {
+        font-family: Quicksand;
+        border: 1px white solid;
+    }
+
+    /* Mobile webpage styling */
+
+    .head_desk {
+        height: 0px;
+    }
+
+    .dash_page {
+        position: relative;
+        margin-top: 80px;
+        height: 90.1477833%;
+        width: 100%;
+    }
+
+    .dashboard_text {
+        position: relative;
+        margin: auto;
+        height: auto;
+        top: 25px;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 34px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .dash_info {
+        font-family: Quicksand;
+        position: relative;
+        background-color: #ffcccc;
+        border-radius: 10px;
+        margin: auto;
+        margin-top: 15%;
+        width: 90%;
+        align-items: center;
+    }
+
+    thead {
+        display: block;
+        align-items: center;
+    }
+
+    tbody {
+        display: block;
+        overflow-y: scroll;
+        max-height: 150px;
+        align-items: center;
+    }
+
+    thead th, tbody td {
+        width: 30vw;
+    }
+
+    .dep_info {
+        font-family: Quicksand;
+        position: relative;
+        background-color: #ffcccc;
+        border-radius: 10px;
+        margin: auto;
+        margin-top: 15%;
+        width: 90%;
+        height: 50%;
+    }
+
+    .appointments_page {
+        position: relative;
+        margin-top: 80px;
+        height: 90.1477833%;
+        width: 100%;
+    }
+
+    .appoint_text {
+        position: relative;
+        margin: auto;
+        height: auto;
+        top: 25px;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 34px;
+        line-height: 44px;
+        display: flex;
+        align-items: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .abody {
+        max-height: 20em;
+    }
+
+    .appoint_info {
+        font-family: Quicksand;
+        position: relative;
+        background-color: #ffcccc;
+        border-radius: 10px;
+        margin: auto;
+        margin-top: 15%;
+        width: 90%;
+        height: 50%;
+    }
+
+    .appoint_info_text {
+        position: relative;
+        margin: auto;
+        margin-top: 15%;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .pers_page {
+        position: relative;
+        margin-top: 80px;
+        height: 90.1477833%;
+        width: 100%;
+    }
+
+    .pbody {
+        max-height: 20em;
+    }
+
+    .pres_text {
+        position: relative;
+        margin: auto;
+        height: auto;
+        top: 25px;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 34px;
+        line-height: 44px;
+        display: flex;
+        align-items: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .pres_info {
+        font-family: Quicksand;
+        position: relative;
+        background-color: #ffcccc;
+        border-radius: 10px;
+        margin: auto;
+        margin-top: 15%;
+        width: 90%;
+        height: 50%;
+    }
+
+    .pres_info_text {
+        position: relative;
+        margin: auto;
+        margin-top: 15%;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .test_page {
+        position: relative;
+        margin-top: 80px;
+        height: 90.1477833%;
+        width: 100%;
+    }
+
+    .tbody {
+        max-height: 20em;
+    }
+
+    .test_text {
+        position: relative;
+        margin: auto;
+        height: auto;
+        top: 25px;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 34px;
+        line-height: 44px;
+        display: flex;
+        align-items: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .test_info {
+        font-family: Quicksand;
+        position: relative;
+        background-color: #ffcccc;
+        border-radius: 10px;
+        margin: auto;
+        margin-top: 15%;
+        width: 90%;
+        height: 50%;
+    }
+
+    .test_info_text {
+        position: relative;
+        margin: auto;
+        margin-top: 15%;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+
+}
+
+@media only screen and (min-width:768px) {
+
+    a {
+        text-decoration: none;
+    }
+
+    .scroll_bar {
+        position: absolute;
+        width: 6px;
+        height: 30px;
+        left: 14px;
+        top: 158px;
+    
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        transition: top 0.2s linear;
+    }
+
+    .logout_desk {
+        position: absolute;
+        width:40%;
+        height: 5%;
+        background-color: #ffffff;
+        color: #000000;
+        border-radius: 10px;
+        bottom: 0%;
+        margin: auto;
+        left: 30%;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 45px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .logout_desk:active {
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    
+    .scroll_bar.dashboard {
+        top: 158px;
+    }
+    
+    .scroll_bar.appointments {
+        top: 254px;
+    }
+    .scroll_bar.prescriptions {
+        top:350px;
+    }
+
+    .scroll_bar.tests {
+        top:446px;
+    }
+
+    .head_desk {
+        visibility: visible;
+        position: fixed;
+        width:  78.125%;
+        top:    0%;
+        right:  0%;
+        height: 10.0022%;
+        background: #ffffff;
+    }
+
+    .head_desk .header_text {
+        position: absolute;
+        width: auto;
+        height: 70px;
+        right: 10%;
+        top: 10px;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 45px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .head_desk .profile_image {
+        position: absolute;
+        right: 2.2%;
+        top: 10px;
+        width: 70px;
+        height: 70px;
+        border-radius: 15px;
+        background-image: url(../icons/profile.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+    
+    .content_desk .sidebar {
+        visibility: visible;
+        position: fixed;
+        width: 21.875%;
+        height: 100%;
+        left: 0%;
+        background: #F56961;
+        box-shadow: inset -4px -4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 0px 45px 45px 0px;
+        align-items: center;
+    }
+
+    .sidebar .logo_desk {
+        position: absolute;
+        width: 85%;
+        height: 7.78%;
+        left: 7.14%;
+        top:20px;
+    }
+
+    .sidebar .logo_desk .logo_writing_desk {
+        position: absolute;
+        width: 185px;
+        height: 70px;
+        left: 0px;
+        top: 0px;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 45px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #FFFFFF;
+
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .sidebar .logo_desk .maple_image_desk {
+        position: absolute;
+        width: 54px;
+        height: 50px;
+        left: 185px;
+        top: 10px;
+
+        background-image: url("../icons/maple_image_white.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .sidebar .menu_desk{
+        position: absolute;
+        width: 85%;
+        height: 82.22%;
+        top: 12.556%;
+        left: 7.14%;
+    }
+
+    .sidebar .menu_desk .dashboard_desk {
+        position: absolute;
+        width: 300px;
+        height: 70px;
+        left: 0px;
+        top: 25px;
+    }
+
+    .sidebar .menu_desk .dashboard_desk .dashboard_desk_image {
+        position: absolute;
+        width: 27px;
+        height: 25px;
+        left: 15px;
+        top: 22.53px;
+
+        background-image: url(../icons/dashboard.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+    }
+
+    .sidebar .menu_desk .dashboard_desk .dashboard_desk_writing {
+        position: absolute;
+        width: 140px;
+        height: 70px;
+        left: 50px;
+        top: 0px;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-align: right;
+
+        color: #FFFFFF;
+
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .sidebar .menu_desk .appointments_desk {
+        position: absolute;
+        width: 300px;
+        height: 70px;
+        left: 0px;
+        top: 120px;
+    }
+
+    .sidebar .menu_desk .appointments_desk .appointments_desk_image {
+        position: absolute;
+        width: 20px;
+        height: 28px;
+        left: 15px;
+        top: 21px;
+
+        background-image: url(../icons/appointments.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .sidebar .menu_desk .appointments_desk .appointments_desk_writing {
+        position: absolute;
+        width: 160px;
+        height: 70px;
+        left: 50px;
+        top: 0px;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-align: right;
+
+        color: #FFFFFF;
+
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .prescriptions_desk {
+        position: absolute;
+        width: 300px;
+        height: 70px;
+        left: 0px;
+        top: 215px;
+    }
+
+    .prescriptions_desk .prescriptions_desk_image {
+        position: absolute;
+        width: 32px;
+        height: 38px;
+        left: 10px;
+        top: 18px;
+
+        background-image: url(../icons/prescriptions.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .prescriptions_desk .prescriptions_desk_writing {
+        position: absolute;
+        width: 150px;
+        height: 70px;
+        left: 50px;
+        top: 0px;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-align: right;
+
+        color: #FFFFFF;
+
+        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .tests_desk {
+        position: absolute;
+        width: 300px;
+        height: 70px;
+        left: 0px;
+        top: 310px;
+    }
+
+    .tests_desk_image {
+        position: absolute;
+        width: 30px;
+        height: 39px;
+        left: 12px;
+        top: 19px;
+
+        background-image: url(../icons/tests.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+    }
+
+    .tests_desk .tests_desk_writing {
+        position: absolute;
+        width: 60px;
+        height: 70px;
+        left: 50px;
+        top: 0px;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+
+        color: #FFFFFF;
+
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    th {
+        height: 30px;
+        border-bottom: 2px white solid;
+        border-radius: 10px;
+        font-family: Quicksand;
+    }
+    .trow {
+        font-family: Quicksand;
+        border: 1px white solid;
+    }
+
+    thead {
+        display: block;
+        align-items: center;
+    }
+
+    tbody {
+        display: block;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        max-height: 600px;
+        align-items: center;
+    }
+    tbody::-webkit-scrollbar {
+        display: none;
+    }
+
+    thead th, tbody td {
+        width: 30vw;
+    }
+
+    .dash_page {
+        position: absolute;
+        top: 10.0022%;
+        right: 0%;
+        height: 89.9978%;
+        width: 78.125%;
+    }
+
+    .dash_page .dashboard_text {
+        position: absolute;
+        top: 2.5%;
+        left: 2.5%;
+        height: auto;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 34px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .dash_page .dash_info {
+        position: absolute;
+        width: 42.5%;
+        top: 10%;
+        left: 5%;
+        height: auto;
+        background-color: #ffcccc;
+        border-radius: 10px;
+        /*border-collapse: collapse;*/
+    }
+
+    .dash_page .dash_info_pane {
+        position: absolute;
+        width: 50%;
+        top: 10%;
+        left: 2.5%;
+        height: 50%;
+        background: #000000;
+    }
+
+    .dep_info {
+        position: absolute;
+        width: 42.5%;
+        top: 10%;
+        right: 5%;
+        height: auto;
+        background-color: #ffcccc;
+        border-radius: 10px;
+    }
+
+    .appointments_page {
+        position: absolute;
+        top: 110.0022%;
+        right: 0%;
+        height: 89.9978%;
+        width: 78.125%;
+    }
+
+    .appointments_page .appoint_text {
+        position: absolute;
+        top: 2.5%;
+        left: 2.5%;
+        height: auto;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 34px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .appointments_page .appoint_info_pane {
+        position: absolute;
+        width: 50%;
+        top: 10%;
+        left: 2.5%;
+        height: 50%;
+        background: #000000;
+    }
+
+    .appointments_page .appoint_info {
+        position: absolute;
+        width: 75%;
+        top: 10%;
+        left: 5%;
+        height: auto;
+        background-color: #ffcccc;
+        border-radius: 10px;
+    }
+
+
+
+    .pers_page {
+        position: absolute;
+        top: 210.022%;
+        right: 0%;
+        height: 89.9978%;
+        width: 78.125%;
+    }
+
+    .pers_page .pres_text {
+        position: absolute;
+        top: 2.5%;
+        left: 2.5%;
+        height: auto;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 34px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .pers_page .pres_info_pane {
+        position: absolute;
+        width: 50%;
+        top: 10%;
+        left: 2.5%;
+        height: 50%;
+        background: #000000;
+    }
+
+    .pers_page .pres_info{
+        position: absolute;
+        width: 75%;
+        top: 10%;
+        left: 5%;
+        height: auto;
+        background-color: #ffcccc;
+        border-radius: 10px;
+    }
+
+    .test_page {
+        position: absolute;
+        top: 310.022%;
+        right: 0%;
+        height: 89.9978%;
+        width: 78.125%;
+    }
+
+    .test_page .test_text {
+        position: absolute;
+        top: 2.5%;
+        left: 2.5%;
+        height: auto;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 34px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .test_page .test_info_pane {
+        position: absolute;
+        width: 50%;
+        top: 10%;
+        left: 2.5%;
+        height: 50%;
+        background-color: #ffcccc;
+        border-radius: 10px;
+    }
+
+    .test_page .test_info {
+        position: absolute;
+        width: 75%;
+        top: 10%;
+        left: 5%;
+        height: auto;
+        background-color: #ffcccc;
+        border-radius: 10px;
+    }
+}
+
+

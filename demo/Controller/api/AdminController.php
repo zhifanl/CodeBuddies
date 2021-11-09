@@ -34,7 +34,7 @@ class AdminController extends BaseController{
                 array('Content-Type: application/json','HTTP/1.1 500 Internal Server Error'));
             }
         } 
-        else if (strtoupper($requestMethod) == 'PATCH') {
+        else if (strtoupper($requestMethod) == 'PUT') {
             $strErrorDesc = '';
             try {
              

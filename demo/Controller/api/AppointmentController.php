@@ -1,27 +1,21 @@
 <?php
-class StudentCourseListController extends BaseController
-{
-    /**
-     * REST API "/software_courses/list" Endpoint - Get list of software_courses with description*/
-    public function listAction($uri)
-    {
-        
+class AppointmentController extends BaseController{
+    public function listAction($uri){
         $requestMethod = $_SERVER["REQUEST_METHOD"];
         $arrQueryStringParams = $this->getQueryStringParams();// param in the query string
-
 
         if (strtoupper($requestMethod) == 'GET') {
             $strErrorDesc = '';
             try {
-                $studentCourseListModel = new StudentCourseListModel();
+                $AppointmentModel = new AppointmentModel();
 
                 $intLimit = 10;
                 if (isset($arrQueryStringParams['limit']) && $arrQueryStringParams['limit']) {
                     $intLimit = $arrQueryStringParams['limit'];
                 }
 
-                $arrStudentCourseListModel = $studentCourseListModel->getStudentCourseList($intLimit);
-                $responseData = json_encode($arrStudentCourseListModel);
+                $arrAppointment = $AppointmentModel->getAppointment($intLimit);
+                $responseData = json_encode($arrAppointment);
                 // send output
                 if (!$strErrorDesc) {
                     $this->sendOutput(
@@ -63,16 +57,15 @@ class StudentCourseListController extends BaseController
                 }
 
                 //Process the JSON.
-                $studentCourseListModel=new StudentCourseListModel();
-                $student_id=$array['student_id'];
-                $tuition_fee=$array['tuition_fee'];
-                $course_name=$array['course_name'];
-                $start_date=$array['start_date'];
-                $end_date=$array['end_date'];
-                $teacher_name=$array['teacher_name'];
-
-                $result=$studentCourseListModel->updateStudentCourseList($student_id,$tuition_fee, $course_name,$start_date, $end_date, $teacher_name);
                 
+                $appointmentModel = new AppointmentModel();
+                $id=$array['id'];
+                $date=$array['date'];
+                $admin_id=$array['admin_id'];
+
+                $result=$appointmentModel->updateAppointment($id,$date,$admin_id);
+                
+                // send output
                 if (!$strErrorDesc) {
                     $this->sendOutput(
                         
@@ -95,22 +88,15 @@ class StudentCourseListController extends BaseController
         else if (strtoupper($requestMethod) == 'DELETE') {
             $strErrorDesc = '';
             try {
-                $studentCourseListModel=new StudentCourseListModel();
+                $appointmentModel = new AppointmentModel();
 
-                $course_name = '';
-                $student_id='';
-                
-                if (isset($arrQueryStringParams['course_name']) && $arrQueryStringParams['course_name']) 
+                $name = '';
+                if (isset($arrQueryStringParams['id']) && $arrQueryStringParams['id']) 
                 {
-                    $course_name = $arrQueryStringParams['course_name'];
-                    // echo $username;
+                    $id = $arrQueryStringParams['id'];
+                    // echo $name;
                 }
-                if (isset($arrQueryStringParams['student_id']) && $arrQueryStringParams['student_id']) 
-                {
-                    $student_id = $arrQueryStringParams['student_id'];
-                    // echo $username;
-                }
-                $result=$studentCourseListModel->deleteStudentCourseList($student_id,$course_name);// in fact the delete method does not have to have parameters
+                $result=$appointmentModel->deleteAppointment($id);
                 
                 
                 // send output
@@ -135,9 +121,11 @@ class StudentCourseListController extends BaseController
         else if (strtoupper($requestMethod) == 'POST') {
             $strErrorDesc = '';
             try {
-                $studentCourseListModel=new StudentCourseListModel();
+                $appointmentModel = new AppointmentModel();
 
-                $result=$studentCourseListModel->postStudentCourseList();
+                
+                $result=$appointmentModel->postAppointment();
+                
                 
                 // send output
                 if (!$strErrorDesc) {
@@ -163,7 +151,6 @@ class StudentCourseListController extends BaseController
             $this->sendOutput(json_encode(array('error' => $strErrorDesc)), 
             array('Content-Type: application/json','HTTP/1.1 500 Internal Server Error'));
         }
-
-        
     }
 }
+?>

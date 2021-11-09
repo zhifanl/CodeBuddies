@@ -61,7 +61,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
+                            $_SESSION["username"] = $username; 
+                            // have id, username, and loggedin                           
                             
                             // Redirect user to welcome page
                             header("location: welcome.php");
@@ -73,7 +74,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
+                            $_SESSION["username"] = $username;   
+                            $_SESSION["admin"]=true;                       
                             
                             // Redirect user to welcome page
                             header("location: welcomeAdmin.php");

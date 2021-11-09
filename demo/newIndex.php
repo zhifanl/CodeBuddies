@@ -12,13 +12,6 @@ require PROJECT_ROOT_PATH . "/Controller/api/TeacherController.php";
 require PROJECT_ROOT_PATH . "/Controller/api/SelectAppointmentController.php";
 require PROJECT_ROOT_PATH . "/Controller/api/RequestController.php";
 require PROJECT_ROOT_PATH . "/Controller/api/OrderListController.php";
-require PROJECT_ROOT_PATH . "/Controller/api/AppointmentController.php";
-require PROJECT_ROOT_PATH . "/Controller/api/FulfillRequestTeacherController.php";
-require PROJECT_ROOT_PATH . "/Controller/api/InPersonController.php";
-require PROJECT_ROOT_PATH . "/Controller/api/MakeRequestController.php";
-
-
-
 
 
 
@@ -71,31 +64,6 @@ if (count($uri)>3 && (isset($uri[3]) && $uri[3] == 'request') && $uri[4] == 'lis
 
 if (count($uri)>3 && (isset($uri[3]) && $uri[3] == 'order_list') && $uri[4] == 'list') {
     $objFeedController = new OrderListController();
-    $strMethodName = $uri[4] . 'Action'; //$uri[3] is list, added Action to call the corresponding method
-    $objFeedController->{$strMethodName}($uri);
-}
-
-if (count($uri)>3 && (isset($uri[3]) && $uri[3] == 'appointment') && $uri[4] == 'list') {
-    $objFeedController = new AppointmentController();
-    $strMethodName = $uri[4] . 'Action'; //$uri[3] is list, added Action to call the corresponding method
-    $objFeedController->{$strMethodName}($uri);
-}
-
-
-if (count($uri)>3 && (isset($uri[3]) && $uri[3] == 'fulfill_request_teacher') && $uri[4] == 'list') {
-    $objFeedController = new FulfillRequestTeacherController();
-    $strMethodName = $uri[4] . 'Action'; //$uri[3] is list, added Action to call the corresponding method
-    $objFeedController->{$strMethodName}($uri);
-}
-
-if (count($uri)>3 && (isset($uri[3]) && $uri[3] == 'in_person') && $uri[4] == 'list') {
-    $objFeedController = new InPersonController();
-    $strMethodName = $uri[4] . 'Action'; //$uri[3] is list, added Action to call the corresponding method
-    $objFeedController->{$strMethodName}($uri);
-}
-
-if (count($uri)>3 && (isset($uri[3]) && $uri[3] == 'make_request') && $uri[4] == 'list') {
-    $objFeedController = new MakeRequestController();
     $strMethodName = $uri[4] . 'Action'; //$uri[3] is list, added Action to call the corresponding method
     $objFeedController->{$strMethodName}($uri);
 }

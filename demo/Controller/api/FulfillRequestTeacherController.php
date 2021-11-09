@@ -1,27 +1,21 @@
 <?php
-class StudentCourseListController extends BaseController
-{
-    /**
-     * REST API "/software_courses/list" Endpoint - Get list of software_courses with description*/
-    public function listAction($uri)
-    {
-        
+class FulfillRequestTeacherController extends BaseController{
+    public function listAction($uri){
         $requestMethod = $_SERVER["REQUEST_METHOD"];
         $arrQueryStringParams = $this->getQueryStringParams();// param in the query string
-
 
         if (strtoupper($requestMethod) == 'GET') {
             $strErrorDesc = '';
             try {
-                $studentCourseListModel = new StudentCourseListModel();
+                $FulfillRequestTeacherModel = new FulfillRequestTeacherModel();
 
                 $intLimit = 10;
                 if (isset($arrQueryStringParams['limit']) && $arrQueryStringParams['limit']) {
                     $intLimit = $arrQueryStringParams['limit'];
                 }
 
-                $arrStudentCourseListModel = $studentCourseListModel->getStudentCourseList($intLimit);
-                $responseData = json_encode($arrStudentCourseListModel);
+                $arrFulfillRequestTeacher = $FulfillRequestTeacherModel->getFulfillRequestTeacher($intLimit);
+                $responseData = json_encode($arrFulfillRequestTeacher);
                 // send output
                 if (!$strErrorDesc) {
                     $this->sendOutput(
@@ -43,8 +37,6 @@ class StudentCourseListController extends BaseController
         else if (strtoupper($requestMethod) == 'PUT') {
             $strErrorDesc = '';
             try {
-             
-
                 //Make sure that the content type of the POST request has been set to application/json
                 $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
                 if(strcasecmp($contentType, 'application/json') != 0){
@@ -63,16 +55,14 @@ class StudentCourseListController extends BaseController
                 }
 
                 //Process the JSON.
-                $studentCourseListModel=new StudentCourseListModel();
-                $student_id=$array['student_id'];
-                $tuition_fee=$array['tuition_fee'];
-                $course_name=$array['course_name'];
-                $start_date=$array['start_date'];
-                $end_date=$array['end_date'];
-                $teacher_name=$array['teacher_name'];
-
-                $result=$studentCourseListModel->updateStudentCourseList($student_id,$tuition_fee, $course_name,$start_date, $end_date, $teacher_name);
                 
+                $fulfillRequestTeacherModel = new FulfillRequestTeacherModel();
+                $request_id=$array['request_id'];
+                $teacher_id=$array['teacher_id'];
+
+                $result=$fulfillRequestTeacherModel->updateFulfillRequestTeacher($request_id,$teacher_id);
+                
+                // send output
                 if (!$strErrorDesc) {
                     $this->sendOutput(
                         
@@ -95,22 +85,15 @@ class StudentCourseListController extends BaseController
         else if (strtoupper($requestMethod) == 'DELETE') {
             $strErrorDesc = '';
             try {
-                $studentCourseListModel=new StudentCourseListModel();
+                $fulfillRequestTeacherModel = new FulfillRequestTeacherModel();
 
-                $course_name = '';
-                $student_id='';
-                
-                if (isset($arrQueryStringParams['course_name']) && $arrQueryStringParams['course_name']) 
+                $name = '';
+                if (isset($arrQueryStringParams['request_id']) && $arrQueryStringParams['request_id']) 
                 {
-                    $course_name = $arrQueryStringParams['course_name'];
-                    // echo $username;
+                    $id = $arrQueryStringParams['request_id'];
+                    // echo $name;
                 }
-                if (isset($arrQueryStringParams['student_id']) && $arrQueryStringParams['student_id']) 
-                {
-                    $student_id = $arrQueryStringParams['student_id'];
-                    // echo $username;
-                }
-                $result=$studentCourseListModel->deleteStudentCourseList($student_id,$course_name);// in fact the delete method does not have to have parameters
+                $result=$fulfillRequestTeacherModel->deleteFulfillRequestTeacher($id);
                 
                 
                 // send output
@@ -135,9 +118,11 @@ class StudentCourseListController extends BaseController
         else if (strtoupper($requestMethod) == 'POST') {
             $strErrorDesc = '';
             try {
-                $studentCourseListModel=new StudentCourseListModel();
+                $fulfillRequestTeacherModel = new FulfillRequestTeacherModel();
 
-                $result=$studentCourseListModel->postStudentCourseList();
+                
+                $result=$fulfillRequestTeacherModel->postFulfillRequestTeacher();
+                
                 
                 // send output
                 if (!$strErrorDesc) {
@@ -163,7 +148,6 @@ class StudentCourseListController extends BaseController
             $this->sendOutput(json_encode(array('error' => $strErrorDesc)), 
             array('Content-Type: application/json','HTTP/1.1 500 Internal Server Error'));
         }
-
-        
     }
 }
+?>

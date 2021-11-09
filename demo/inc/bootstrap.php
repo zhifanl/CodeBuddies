@@ -10,7 +10,9 @@ require_once PROJECT_ROOT_PATH . "/Model/TeacherModel.php";
 require_once PROJECT_ROOT_PATH . "/Model/SelectAppointmentModel.php";
 require_once PROJECT_ROOT_PATH . "/Model/RequestModel.php";
 require_once PROJECT_ROOT_PATH . "/Model/OrderListModel.php";
-
-
+require_once PROJECT_ROOT_PATH . "/Model/AppointmentModel.php";
+require_once PROJECT_ROOT_PATH . "/Model/FulfillRequestTeacherModel.php";
+require_once PROJECT_ROOT_PATH . "/Model/InPersonModel.php";
+require_once PROJECT_ROOT_PATH . "/Model/MakeRequestModel.php";
 
 ?>
