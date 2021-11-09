@@ -1,20 +1,20 @@
 <?php
 require_once  PROJECT_ROOT_PATH . "/Model/Database.php";
  
-class StudentCourseListModel extends Database
+class OrderListModel extends Database
 {
-    public function getStudentCourseList($limit)
+    public function getOrderList($limit)
     {
-        return $this->select("SELECT * FROM student_course_list LIMIT ?", ["i", $limit]);
+        return $this->select("SELECT * FROM order_list LIMIT ?", ["i", $limit]);
     }
 
     // param need to be in order: course_name, description
-    public function updateStudentCourseList($student_id, $tuition_fee,$course_name,$start_date,$end_date,$teacher_name)
+    public function updateOrderList($order_id, $student_name,$student_id,$course_name, $start_date, $end_date, $salary)
     {
         try {
-            $query="UPDATE student_course_list as p 
-            SET p.tuition_fee='$tuition_fee',p.course_name='$course_name',p.start_date='$start_date', p.end_date='$end_date',p.teacher_name='$teacher_name'
-            WHERE p.student_id=$student_id AND p.course_name= '$course_name'";
+            $query="UPDATE order_list as p 
+            SET p.student_name='$student_name',p.student_id='$student_id',p.course_name='$course_name', p.start_date='$start_date', p.end_date='$end_date', p.salary='$salary'
+            WHERE p.order_id=$order_id";
 
             $stmt = $this->connection->prepare($query);
             if ($stmt->execute() === TRUE) {
@@ -32,13 +32,13 @@ class StudentCourseListModel extends Database
         
     }
 
-    public function deleteStudentCourseList(){
+    public function deleteOrderList(){
         
         try{
-            $course_name=$_GET['course_name'];
-            $student_id=$_GET['student_id'];
-            $query ="DELETE FROM student_course_list 
-            WHERE student_id= '$student_id' AND course_name= '$course_name'";
+            $order_id=$_GET['order_id'];
+            
+            $query ="DELETE FROM order_list 
+            WHERE order_id= '$order_id'";
             
 
 
@@ -59,24 +59,26 @@ class StudentCourseListModel extends Database
         }  
     }
 
-    public function postStudentCourseList(){
+    public function postOrderList(){
         $rest_json = file_get_contents('php://input');
 
         $_POST = json_decode($rest_json, true);
+        // $student_name,$student_id,$course_name, $start_date, $end_date, $salary
 
+        $stmt = $this->connection->prepare("INSERT INTO order_list(student_name,student_id, course_name,start_date,end_date,salary) VALUES (?,?,?,?,?,?)");
 
-        $stmt = $this->connection->prepare("INSERT INTO student_course_list(student_id, tuition_fee,course_name,start_date,end_date,teacher_name) VALUES (?,?,?,?,?,?)");
-
-        $stmt->bind_param("iissss", $student_id, $tuition_fee, $course_name, $start_date, $end_date, $teacher_name ); // "iissss" means that $id is bound as an integer and $label as a string
+        $stmt->bind_param("sisssi", $student_name, $student_id, $course_name, $start_date, $end_date, $salary); // "ssss" means that $id is bound as an integer and $label as a string
         
 
         /* Prepared statement, stage 2: bind and execute */
+        $student_name = $_POST['student_name'];
         $student_id = $_POST['student_id'];
-        $tuition_fee = $_POST['tuition_fee'];
         $course_name = $_POST['course_name'];
         $start_date = $_POST['start_date'];
         $end_date = $_POST['end_date'];
-        $teacher_name = $_POST['teacher_name'];
+        $salary = $_POST['salary'];
+
+        
 
         if($stmt->execute()===TRUE){
 

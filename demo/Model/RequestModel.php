@@ -1,20 +1,20 @@
 <?php
 require_once  PROJECT_ROOT_PATH . "/Model/Database.php";
  
-class StudentCourseListModel extends Database
+class RequestModel extends Database
 {
-    public function getStudentCourseList($limit)
+    public function getRequest($limit)
     {
-        return $this->select("SELECT * FROM student_course_list LIMIT ?", ["i", $limit]);
+        return $this->select("SELECT * FROM request LIMIT ?", ["i", $limit]);
     }
 
     // param need to be in order: course_name, description
-    public function updateStudentCourseList($student_id, $tuition_fee,$course_name,$start_date,$end_date,$teacher_name)
+    public function updateRequest($request_id, $email,$client_name, $teacher_name,$course_name)
     {
         try {
-            $query="UPDATE student_course_list as p 
-            SET p.tuition_fee='$tuition_fee',p.course_name='$course_name',p.start_date='$start_date', p.end_date='$end_date',p.teacher_name='$teacher_name'
-            WHERE p.student_id=$student_id AND p.course_name= '$course_name'";
+            $query="UPDATE request as p 
+            SET p.request_id='$request_id',p.email='$email',p.client_name='$client_name', p.teacher_name='$teacher_name', p.course_name='$course_name'
+            WHERE p.request_id=$request_id";
 
             $stmt = $this->connection->prepare($query);
             if ($stmt->execute() === TRUE) {
@@ -32,13 +32,13 @@ class StudentCourseListModel extends Database
         
     }
 
-    public function deleteStudentCourseList(){
+    public function deleteRequest(){
         
         try{
-            $course_name=$_GET['course_name'];
-            $student_id=$_GET['student_id'];
-            $query ="DELETE FROM student_course_list 
-            WHERE student_id= '$student_id' AND course_name= '$course_name'";
+            $request_id=$_GET['request_id'];
+            
+            $query ="DELETE FROM request 
+            WHERE request_id= '$request_id'";
             
 
 
@@ -59,24 +59,23 @@ class StudentCourseListModel extends Database
         }  
     }
 
-    public function postStudentCourseList(){
+    public function postRequest(){
         $rest_json = file_get_contents('php://input');
 
         $_POST = json_decode($rest_json, true);
 
 
-        $stmt = $this->connection->prepare("INSERT INTO student_course_list(student_id, tuition_fee,course_name,start_date,end_date,teacher_name) VALUES (?,?,?,?,?,?)");
+        $stmt = $this->connection->prepare("INSERT INTO request(email,client_name, teacher_name,course_name) VALUES (?,?,?,?)");
 
-        $stmt->bind_param("iissss", $student_id, $tuition_fee, $course_name, $start_date, $end_date, $teacher_name ); // "iissss" means that $id is bound as an integer and $label as a string
+        $stmt->bind_param("ssss", $email, $client_name, $teacher_name, $course_name); // "ssss" means that $id is bound as an integer and $label as a string
         
 
         /* Prepared statement, stage 2: bind and execute */
-        $student_id = $_POST['student_id'];
-        $tuition_fee = $_POST['tuition_fee'];
+        $email = $_POST['email'];
+        $client_name = $_POST['client_name'];
         $course_name = $_POST['course_name'];
-        $start_date = $_POST['start_date'];
-        $end_date = $_POST['end_date'];
         $teacher_name = $_POST['teacher_name'];
+        
 
         if($stmt->execute()===TRUE){
 

@@ -8,6 +8,11 @@ require PROJECT_ROOT_PATH . "/Controller/api/UserController.php";
 require PROJECT_ROOT_PATH . "/Controller/api/SoftwareCoursesController.php";
 require PROJECT_ROOT_PATH . "/Controller/api/StudentCourseListController.php";
 require PROJECT_ROOT_PATH . "/Controller/api/AdminController.php";
+require PROJECT_ROOT_PATH . "/Controller/api/TeacherController.php";
+require PROJECT_ROOT_PATH . "/Controller/api/SelectAppointmentController.php";
+require PROJECT_ROOT_PATH . "/Controller/api/RequestController.php";
+require PROJECT_ROOT_PATH . "/Controller/api/OrderListController.php";
+
 
 
 
@@ -38,6 +43,31 @@ if (count($uri)>3 && (isset($uri[3]) && $uri[3] == 'student_course_list') && $ur
     $strMethodName = $uri[4] . 'Action'; //$uri[3] is list, added Action to call the corresponding method
     $objFeedController->{$strMethodName}($uri);
 }
+
+if (count($uri)>3 && (isset($uri[3]) && $uri[3] == 'teacher') && $uri[4] == 'list') {
+    $objFeedController = new TeacherController();
+    $strMethodName = $uri[4] . 'Action'; //$uri[3] is list, added Action to call the corresponding method
+    $objFeedController->{$strMethodName}($uri);
+}
+
+if (count($uri)>3 && (isset($uri[3]) && $uri[3] == 'select_appointment') && $uri[4] == 'list') {
+    $objFeedController = new SelectAppointmentController();
+    $strMethodName = $uri[4] . 'Action'; //$uri[3] is list, added Action to call the corresponding method
+    $objFeedController->{$strMethodName}($uri);
+}
+
+if (count($uri)>3 && (isset($uri[3]) && $uri[3] == 'request') && $uri[4] == 'list') {
+    $objFeedController = new RequestController();
+    $strMethodName = $uri[4] . 'Action'; //$uri[3] is list, added Action to call the corresponding method
+    $objFeedController->{$strMethodName}($uri);
+}
+
+if (count($uri)>3 && (isset($uri[3]) && $uri[3] == 'order_list') && $uri[4] == 'list') {
+    $objFeedController = new OrderListController();
+    $strMethodName = $uri[4] . 'Action'; //$uri[3] is list, added Action to call the corresponding method
+    $objFeedController->{$strMethodName}($uri);
+}
+
 
 
 
