@@ -3,6 +3,43 @@ require_once  PROJECT_ROOT_PATH . "/Model/Database.php";
  
 class SoftwareCoursesModel extends Database
 {
+
+    public function displayList(){
+   
+    $result=$this->getSoftwareCourses(10);
+                    //  echo "<p>".$result."</p>";
+                        if(count ($result) > 0){
+                            echo '<h2 class="pull-left">Courses</h2>';
+                            echo '<table class="table table-bordered table-striped">';
+                                echo "<thead>";
+                                    echo "<tr>";
+                                        echo "<th>#</th>";
+                                        echo "<th>Course Name</th>";
+                                        echo "<th>Description</th>";
+                                    echo "</tr>";
+                                echo "</thead>";
+                                echo "<tbody>";
+                                foreach ($result as $row){
+                                    echo "<tr>";
+                                        echo "<td>" . $row['id'] . "</td>";
+                                        echo "<td>" . $row['course_name'] . "</td>";
+                                        echo "<td>" . $row['description'] . "</td>";
+                                        // echo "<td>";
+                                        //     echo '<a href="read.php?id='. $row['id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
+                                        //     echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                        //     echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                        // echo "</td>";
+                                    echo "</tr>";
+                                }
+                                echo "</tbody>";                            
+                            echo "</table>";
+                            // Free result set
+                        } else{
+                            echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+                        }
+    }
+
+
     public function getSoftwareCourses($limit)
     {
         return $this->select("SELECT * FROM software_courses LIMIT ?", ["i", $limit]);

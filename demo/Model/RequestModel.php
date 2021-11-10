@@ -3,6 +3,43 @@ require_once  PROJECT_ROOT_PATH . "/Model/Database.php";
  
 class RequestModel extends Database
 {
+    public function displayList(){
+   
+        $result=$this->getRequest(100);
+                            if(count ($result) > 0){
+                                echo '<h2 class="pull-left">Requests</h2>';
+                                echo '<table class="table table-bordered table-striped">';
+                                    echo "<thead>";
+                                        echo "<tr>";
+                                            echo "<th>#</th>";
+                                            echo "<th>Student email</th>";
+                                            echo "<th>Student name</th>";
+                                            echo "<th>Teacher name</th>";
+                                            echo "<th>Course name</th>";
+                                        echo "</tr>";
+                                    echo "</thead>";
+                                    echo "<tbody>";
+                                    foreach ($result as $row){
+                                        echo "<tr>";
+                                            echo "<td>" . $row['request_id'] . "</td>";
+                                            echo "<td>" . $row['email'] . "</td>";
+                                            echo "<td>" . $row['client_name'] . "</td>";
+                                            echo "<td>" . $row['teacher_name'] . "</td>";
+                                            echo "<td>" . $row['course_name'] . "</td>";
+                                            echo "<td>";
+                                                echo '<a href="read.php?id='. $row['id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
+                                                echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                                echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                            echo "</td>";
+                                        echo "</tr>";
+                                    }
+                                    echo "</tbody>";                            
+                                echo "</table>";
+                                // Free result set
+                            } else{
+                                echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+                            }
+        }
     public function getRequest($limit)
     {
         return $this->select("SELECT * FROM request LIMIT ?", ["i", $limit]);
@@ -62,7 +99,7 @@ class RequestModel extends Database
     public function postRequest(){
         $rest_json = file_get_contents('php://input');
 
-        $_POST = json_decode($rest_json, true);
+        $data = json_decode($rest_json, true);
 
 
         $stmt = $this->connection->prepare("INSERT INTO request(email,client_name, teacher_name,course_name) VALUES (?,?,?,?)");
@@ -71,20 +108,45 @@ class RequestModel extends Database
         
 
         /* Prepared statement, stage 2: bind and execute */
-        $email = $_POST['email'];
-        $client_name = $_POST['client_name'];
-        $course_name = $_POST['course_name'];
-        $teacher_name = $_POST['teacher_name'];
+        if(!isset($data['email'])||!isset($data['client_name'])||!isset($data['course_name'])||!isset($data['teacher_name'])){
+            if($_POST['email']!='' && $_POST['client_name']!='' && $_POST['course_name']!='' && $_POST['teacher_name']!='')
+            {
+                $email = $_POST['email'];
+                $client_name = $_POST['client_name'];
+                $course_name = $_POST['course_name'];
+                $teacher_name = $_POST['teacher_name'];
+                
+            }else{
+                echo "You did not completely fill the form, please do that again.";
+                return;
+            }
+
+        }
+        else{
+            if($data['email']!='' && $data['client_name']!='' && $data['course_name']!='' && $data['teacher_name']!='')
+            {
+                $email = $data['email'];
+                $client_name = $data['client_name'];
+                $course_name = $data['course_name'];
+                $teacher_name = $data['teacher_name']; 
+                
+            }else{
+                echo "You did not completely fill the form, please do that again.";
+                return;
+            }
+            
+            
+        }
         
 
         if($stmt->execute()===TRUE){
 
             $this->connection->close();
-            return "Course Record added to list successfully";
+            return "Request submited successfully";
             
         } else {
             $this->connection->close();
-            return "Error adding record to list: " .$this->connection->error;
+            return "Error adding request: " .$this->connection->error;
         }
     }
         

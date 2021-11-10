@@ -1,5 +1,8 @@
 <?php
 // Include config file
+
+
+/// REST API FOR /user/list
 require __DIR__ . "/inc/bootstrap.php";
 require PROJECT_ROOT_PATH . "/Controller/api/UserController.php";
 require PROJECT_ROOT_PATH . "/Controller/api/SoftwareCoursesController.php";
@@ -13,6 +16,11 @@ require PROJECT_ROOT_PATH . "/Controller/api/AppointmentController.php";
 require PROJECT_ROOT_PATH . "/Controller/api/FulfillRequestTeacherController.php";
 require PROJECT_ROOT_PATH . "/Controller/api/InPersonController.php";
 require PROJECT_ROOT_PATH . "/Controller/api/MakeRequestController.php";
+
+
+
+
+
 
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -229,7 +237,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       <ul class="nav nav-pills">
         <li class="nav-item"><a href="./" class="nav-link active" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="./courses.php" class="nav-link">Courses</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Courses</a></li>
         <li class="nav-item"><a href="#" class="nav-link">About</a></li>
       </ul>
     </header>

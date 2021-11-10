@@ -3,6 +3,38 @@ require_once  PROJECT_ROOT_PATH . "/Model/Database.php";
  
 class TeacherModel extends Database
 {
+
+    public function displayList(){
+   
+        $result=$this->getTeacher(10);
+                            if(count ($result) > 0){
+                                echo '<h2 class="pull-left">List of Teachers</h2>';
+                                echo '<table class="table table-bordered table-striped">';
+                                    echo "<thead>";
+                                        echo "<tr>";
+                                            echo "<th>#</th>";
+                                            echo "<th>Teacher Name</th>";
+                                        echo "</tr>";
+                                    echo "</thead>";
+                                    echo "<tbody>";
+                                    foreach ($result as $row){
+                                        echo "<tr>";
+                                            echo "<td>" . $row['teacher_id'] . "</td>";
+                                            echo "<td>" . $row['teacher_name'] . "</td>";
+                                            // echo "<td>";
+                                            //     echo '<a href="read.php?id='. $row['id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
+                                            //     echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                            //     echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                            // echo "</td>";
+                                        echo "</tr>";
+                                    }
+                                    echo "</tbody>";                            
+                                echo "</table>";
+                            } else{
+                                echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+                            }
+        }
+
     public function getTeacher($limit)
     {
         return $this->select("SELECT * FROM teacher LIMIT ?", ["i", $limit]);
