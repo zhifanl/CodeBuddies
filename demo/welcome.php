@@ -152,7 +152,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <label for="exampleFormControlTextarea1"  class="form-label">Email</label>
             <input name="email" type="email" class="form-control" id="exampleFormControlTextarea1" rows="1" placeholder=<?php echo $_SESSION["email"]?>>
             <label for="exampleFormControlTextarea2" class="form-label">User Name</label>
-            <textarea name="client_name" class="form-control" id="exampleFormControlTextarea2" rows="1"></textarea>
+            <textarea name="client_name" class="form-control" id="exampleFormControlTextarea2" rows="1" placeholder=<?php echo $_SESSION["username"]?>></textarea>
             <label for="exampleFormControlTextarea3" class="form-label">Teacher Name</label>
             <textarea name="teacher_name" class="form-control" id="exampleFormControlTextarea3" rows="1"></textarea>
             <label for="exampleFormControlTextarea4" class="form-label">Course Name</label>

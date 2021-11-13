@@ -12,6 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['username']) && isset($_
         $result=$user->updateUsers($_POST['username'], $_POST['name'],$_POST['email'], $_POST['university'], $_POST['major'], $_POST['location'],$_POST['description']);
         echo "\n";
         echo $result;
+        $_SESSION["email"]=$_POST['email'];
         }else{
             echo "Form not filled completed, enter them again";
         }

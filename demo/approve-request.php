@@ -3,48 +3,27 @@
 require __DIR__ . "/inc/bootstrap.php";
 require PROJECT_ROOT_PATH . "/Controller/api/RequestController.php";
 require PROJECT_ROOT_PATH . "/Controller/api/OrderListController.php";
+$id=$_GET['id'];//id for the row that is being approved, will get its content and add to user's list
+$order=new OrderListModel();
+$resultOrder=$order->getOrderById($id);
+$student_id=$resultOrder['student_id'];
+$tuition_fee=$resultOrder['salary'];
+$course_name=$resultOrder['course_name'];
+$start_date=$resultOrder['start_date'];
+$end_date=$resultOrder['end_date'];
+$teacher_name=$resultOrder['teacher_name'];
+
+$_POST['student_id']=$student_id;
+$_POST['tuition_fee']=$tuition_fee;
+$_POST['course_name']=$course_name;
+$_POST['start_date']=$start_date;
+$_POST['end_date']=$end_date;
+$_POST['teacher_name']=$teacher_name;
 
 
-if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['email']) && isset($_POST['client_name']) && isset($_POST['teacher_name']) && isset($_POST['course_name']))
-    {
-        if($_POST['email']!='' && $_POST['client_name']!='' && $_POST['teacher_name']!='' && $_POST['course_name']!='')
-        {
-        $request=new RequestModel();
-        $result=$request->postRequest(); //add to Request DB
-        echo $result;
+$course=new StudentCourseListModel();
+$course->postStudentCourseList();
 
-        $temp_user=new UserModel();
-        echo '<br>';
-        echo "Dear ";
-        echo $_POST['client_name'];
-        
-
-        $client_id=$temp_user->getIdByUsername($_POST['client_name']);
-        $client_name=$temp_user->getRealNameByUsername($_POST['client_name']);
-        
-
-
-        $temp_course=new SoftwareCoursesModel();
-        $tuition_fee=$temp_course->getFeeByName($_POST['course_name']);
-        echo "got tutiton fee : ";
-        echo $tuition_fee;
-        // echo $client_id;
-        $_POST['student_name']=$client_name;
-        $_POST['student_id']=$client_id;
-        // $_POST['teacher_name']=$_POST['teacher_name'];
-        // $_POST['course_name']=$_POST['course_name'];
-        $_POST['start_date']='NULL';
-        $_POST['end_date']='NULL';
-        $_POST['salary']=$tuition_fee;
-
-
-        $order=new OrderListModel();
-        $order->postOrderList();
-        echo '<br>';
-        echo "Your oder has been added to Admin's order list, it will be confirmed soon ."; 
-    }else{
-        echo "Form not filled completed, enter them again";
-    }
-    }
-
+echo "Approved successfully, Added to client's course list already. ";
 ?>
+

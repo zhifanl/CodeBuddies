@@ -37,8 +37,8 @@ class OrderListModel extends Database
                                             echo "<td>" . $row['salary'] . "</td>";
 
                                             echo "<td>";
-                                                echo '<a href="approve-request.php?id='. $row['id'] .'" class="mr-3" title="Approve request" data-toggle="tooltip"><span class="fa fa-check"></span></a>';
-                                                echo '<a href="delete.php?id='. $row['id'] .'" title="Ignore request" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                                echo '<a href="approve-request.php?id='. $row['order_id'] .'" class="mr-3" title="Approve request" data-toggle="tooltip"><span class="fa fa-check"></span></a>';
+                                                echo '<a href="delete-request.php?order_id='. $row['order_id'] .'" title="Ignore request" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                             echo "</td>";
                                         echo "</tr>";
                                     }
@@ -50,6 +50,16 @@ class OrderListModel extends Database
                             }
     }
 
+
+    public function getOrderById($id)
+    {
+       $result=$this->select("SELECT * FROM order_list WHERE order_id=?", ["i",$id]);
+       
+       foreach ($result as $row)
+       {
+       return $row;
+        }
+    }
 
     public function getOrderList($limit)
     {
