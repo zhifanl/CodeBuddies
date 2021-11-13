@@ -5,7 +5,7 @@ class StudentCourseListModel extends Database
 {
     public function displayList(){
    
-        $result=$this->getStudentCourseList(10);
+        $result=$this->getStudentCourseListById(10);
                         //  echo "<p>".$result."</p>";
                             if(count ($result) > 0){
                                 echo '<h2 class="pull-left">List of Courses you have</h2>';
@@ -46,7 +46,12 @@ class StudentCourseListModel extends Database
         }
     public function getStudentCourseList($limit)
     {
-        return $this->select("SELECT * FROM student_course_list LIMIT ?", ["i", $limit]);
+        return $this->select("SELECT * FROM student_course_list LIMIT ?", ["i", $limit]); // need to have where id = ?
+    }
+
+    public function getStudentCourseListById()
+    {
+        return $this->select("SELECT * FROM student_course_list WHERE student_id=?", ["i",$_SESSION['id']]); // need to have where id = ?
     }
 
     // param need to be in order: course_name, description
@@ -100,24 +105,52 @@ class StudentCourseListModel extends Database
         }  
     }
 
-    public function postStudentCourseList(){
+    public function postStudentCourseList(){ 
+        //admin will use this
         $rest_json = file_get_contents('php://input');
 
-        $_POST = json_decode($rest_json, true);
+        $data = json_decode($rest_json, true);
 
 
         $stmt = $this->connection->prepare("INSERT INTO student_course_list(student_id, tuition_fee,course_name,start_date,end_date,teacher_name) VALUES (?,?,?,?,?,?)");
 
         $stmt->bind_param("iissss", $student_id, $tuition_fee, $course_name, $start_date, $end_date, $teacher_name ); // "iissss" means that $id is bound as an integer and $label as a string
         
+        if(!isset($data['student_id'])||!isset($data['tuition_fee'])||!isset($data['course_name'])||!isset($data['start_date']) ||!isset($data['end_date'])||!isset($data['teacher_name'])){
+            if($_POST['student_id']!='' && $_POST['tuition_fee']!='' && $_POST['course_name']!='' && $_POST['teacher_name']!='')
+            {
+                $student_id = $_POST['student_id'];
+                $tuition_fee = $_POST['tuition_fee'];
+                $course_name = $_POST['course_name'];
+                $start_date = $_POST['start_date'];
+                $end_date = $_POST['end_date'];
+                $teacher_name = $_POST['teacher_name'];
 
-        /* Prepared statement, stage 2: bind and execute */
-        $student_id = $_POST['student_id'];
-        $tuition_fee = $_POST['tuition_fee'];
-        $course_name = $_POST['course_name'];
-        $start_date = $_POST['start_date'];
-        $end_date = $_POST['end_date'];
-        $teacher_name = $_POST['teacher_name'];
+                
+            }else{
+                echo "You did not completely fill the form, please do that again.";
+                return;
+            }
+
+        }
+        else{
+            if($data['student_id']!='' && $data['tuition_fee']!='' && $data['course_name']!='' && $data['teacher_name']!='')
+            {
+                $student_id = $_POST['student_id'];
+                $tuition_fee = $_POST['tuition_fee'];
+                $course_name = $_POST['course_name'];
+                $start_date = $_POST['start_date'];
+                $end_date = $_POST['end_date'];
+                $teacher_name = $_POST['teacher_name'];
+            }
+
+        // /* Prepared statement, stage 2: bind and execute */
+        // $student_id = $_POST['student_id'];
+        // $tuition_fee = $_POST['tuition_fee'];
+        // $course_name = $_POST['course_name'];
+        // $start_date = $_POST['start_date'];
+        // $end_date = $_POST['end_date'];
+        // $teacher_name = $_POST['teacher_name'];
 
         if($stmt->execute()===TRUE){
 
@@ -128,7 +161,8 @@ class StudentCourseListModel extends Database
             $this->connection->close();
             return "Error adding record to list: " .$this->connection->error;
         }
+        }
+    
     }
-        
 }
 ?>

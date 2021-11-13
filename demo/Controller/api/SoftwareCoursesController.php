@@ -66,8 +66,10 @@ class SoftwareCoursesController extends BaseController
                 $softwarecourseModel=new SoftwareCoursesModel();
                 $course_name=$array['course_name'];
                 $description=$array['description'];
+                $tuition_fee=$array['tuition_fee'];
+
                 
-                $result=$softwarecourseModel->updateSoftwareCourses($course_name,$description);
+                $result=$softwarecourseModel->updateSoftwareCourses($course_name,$description,$tuition_fee);
                 
                 if (!$strErrorDesc) {
                     $this->sendOutput(

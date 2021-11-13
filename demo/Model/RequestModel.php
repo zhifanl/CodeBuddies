@@ -1,5 +1,8 @@
 <?php
 require_once  PROJECT_ROOT_PATH . "/Model/Database.php";
+require_once  PROJECT_ROOT_PATH . "/Model/OrderListModel.php";
+require_once  PROJECT_ROOT_PATH . "/Model/StudentCourseListModel.php";
+
  
 class RequestModel extends Database
 {
@@ -39,7 +42,9 @@ class RequestModel extends Database
                             } else{
                                 echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
                             }
-        }
+    }
+
+    
     public function getRequest($limit)
     {
         return $this->select("SELECT * FROM request LIMIT ?", ["i", $limit]);
@@ -118,6 +123,7 @@ class RequestModel extends Database
                 
             }else{
                 echo "You did not completely fill the form, please do that again.";
+                $this->connection->close();
                 return;
             }
 
@@ -132,17 +138,25 @@ class RequestModel extends Database
                 
             }else{
                 echo "You did not completely fill the form, please do that again.";
+                $this->connection->close();
                 return;
             }
             
             
         }
+
+        
         
 
         if($stmt->execute()===TRUE){
 
             $this->connection->close();
             return "Request submited successfully";
+
+            // $student_course=new StudentCourseListModel();
+            // $admin_order=new OrderListModel();
+            // $student_course->postStudentCourseList();
+            // $admin_order->postOrderList();
             
         } else {
             $this->connection->close();

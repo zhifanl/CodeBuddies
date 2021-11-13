@@ -42,9 +42,12 @@ class Database
                 throw New Exception("Unable to do prepared statement: " . $query);
             }
  
-            if( $params ) {
+            if($params ) {
                 $stmt->bind_param($params[0], $params[1]);
             }
+            // if( count($params)==3 ) {
+            //     $stmt->bind_param($params[0], $params[1],$params[2]);
+            // }
  
             $stmt->execute();
  

@@ -16,6 +16,8 @@ class SoftwareCoursesModel extends Database
                                         echo "<th>#</th>";
                                         echo "<th>Course Name</th>";
                                         echo "<th>Description</th>";
+                                        echo "<th>Tuition Fee</th>";
+
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
@@ -24,6 +26,8 @@ class SoftwareCoursesModel extends Database
                                         echo "<td>" . $row['id'] . "</td>";
                                         echo "<td>" . $row['course_name'] . "</td>";
                                         echo "<td>" . $row['description'] . "</td>";
+                                        echo "<td>" . $row['tuition_fee'] . "</td>";
+
                                         // echo "<td>";
                                         //     echo '<a href="read.php?id='. $row['id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
                                         //     echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
@@ -38,6 +42,17 @@ class SoftwareCoursesModel extends Database
                             echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
                         }
     }
+    public function getFeeByName($course_name)
+    {
+       $result=$this->select("SELECT * FROM software_courses WHERE course_name=?", ["s",$course_name]);
+       // result is array here
+        //    echo count($result); 
+       foreach ($result as $row)
+       {
+           echo $row['tuition_fee'];
+       return $row['tuition_fee'];
+        }
+    }
 
 
     public function getSoftwareCourses($limit)
@@ -46,11 +61,11 @@ class SoftwareCoursesModel extends Database
     }
 
     // param need to be in order: course_name, description
-    public function updateSoftwareCourses($course_name,$description)
+    public function updateSoftwareCourses($course_name,$description,$tuition_fee)
     {
         try {
             $query="UPDATE software_courses as p 
-            SET p.description='$description'  
+            SET p.description='$description' ,p.tuition_fee='$tuition_fee'
             WHERE p.course_name='$course_name'";
 
             $stmt = $this->connection->prepare($query);
@@ -97,13 +112,14 @@ class SoftwareCoursesModel extends Database
         $_POST = json_decode($rest_json, true);
 
 
-        $stmt = $this->connection->prepare("INSERT INTO software_courses(course_name, description) VALUES (?, ?)");
+        $stmt = $this->connection->prepare("INSERT INTO software_courses(course_name, description,tuition_fee) VALUES (?, ?,?)");
 
         /* Prepared statement, stage 2: bind and execute */
         $course_name = $_POST['course_name'];
         $description = $_POST['description'];
+        $tuition_fee = $_POST['tuition_fee'];
 
-        $stmt->bind_param("ss", $course_name, $description); // "is" means that $id is bound as an integer and $label as a string
+        $stmt->bind_param("ssi", $course_name, $description,$tuition_fee); // "is" means that $id is bound as an integer and $label as a string
         
         if($stmt->execute()===TRUE){
 
