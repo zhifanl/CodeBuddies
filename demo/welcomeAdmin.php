@@ -19,6 +19,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/product/">
     <!-- Bootstrap core CSS -->
     <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/table-style.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -45,6 +46,20 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </head>
 
     <body>
+      <div class="container">
+          <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <a href="./index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+              <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+              <span class="fs-4">Code Buddies</span>
+          </a>
+
+          <ul class="nav nav-pills">
+              <li class="nav-item"><a href="./" class="nav-link active" aria-current="page">Home</a></li>
+              <li class="nav-item"><a href="./courses.php" class="nav-link">Courses</a></li>
+              <li class="nav-item"><a href="./about.php" class="nav-link">About</a></li>
+          </ul>
+          </header>
+      </div>
         <h2 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
         <p>
             <!-- <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a> -->
@@ -79,6 +94,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </script>
 </head>
 <body>
+    
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -129,6 +145,23 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </div>
     </div>
     <div class='b-example-divider'></div>
+
+    <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+        </a>
+        <span class="text-muted">Code Buddies; 2021 Company, Inc</span>
+      </div>
+  
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+      </ul>
+    </footer>
+    </div>
     
     <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
 

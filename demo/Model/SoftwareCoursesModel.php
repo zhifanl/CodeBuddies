@@ -9,7 +9,8 @@ class SoftwareCoursesModel extends Database
     $result=$this->getSoftwareCourses(10);
                     //  echo "<p>".$result."</p>";
                         if(count ($result) > 0){
-                            echo '<h2 class="pull-left">Courses</h2>';
+                            echo '<h2 class="table-title">Courses</h2>';
+                            echo '<div class="courses">';
                             echo '<table class="table table-bordered table-striped">';
                                 echo "<thead>";
                                     echo "<tr>";
@@ -37,6 +38,7 @@ class SoftwareCoursesModel extends Database
                                 }
                                 echo "</tbody>";                            
                             echo "</table>";
+                            echo '</div>';
                             // Free result set
                         } else{
                             echo '<div class="alert alert-danger"><em>No records were found.</em></div>';

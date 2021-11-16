@@ -19,6 +19,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/product/">
     <!-- Bootstrap core CSS -->
     <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/table-style.css" rel="stylesheet">
+
 
     <style>
       .bd-placeholder-img {
@@ -45,11 +47,22 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </head>
 
     <body>
-        <h2 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
-        <p>
-            <!-- <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a> -->
-            <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
-        </p>
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="./index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+                <span class="fs-4" >Code Buddies</span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="./welcome.php" class="nav-link active"><?php echo "Hi, ".htmlspecialchars($_SESSION["username"]); ?></a></li>
+                <li class="nav-item"><a href="./logout.php" class="nav-link">Log out</a></li>
+                <li class="nav-item"><a href="./" class="nav-link" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="./courses.php" class="nav-link">Courses</a></li>
+                <li class="nav-item"><a href="./about.php" class="nav-link">About</a></li>
+            </ul>
+            </header>
+        </div>
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -77,8 +90,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             $('[data-toggle="tooltip"]').tooltip();   
         });
     </script>
-</head>
-<body>
+
+
+
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -97,7 +111,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     $course=new SoftwareCoursesModel();
                     $course->displayList();
 
-                    echo '<div class="b-example-divider"></div>';
+                    echo '<div class="divider"></div>';
 
                     $listTeacher=new TeacherModel();
                     $listTeacher->displayList();
@@ -112,13 +126,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             </div>        
         </div>
     </div>
-    <div class='b-example-divider'></div>
     <div class="col-md-10 mx-auto col-lg-5">
     <form id="updateForm"class="p-5 p-md-5 border rounded-6 bg-light"  action="update-info.php" method="post">
     <!-- <label for="updateForm" >Update your information</label> -->
-    <h2 for="updateForm" >Update your information</h2>
+    <h2 for="updateForm" class="table-title" >Update your information</h2>
 
-        <div class="mb-3">
+        <!-- <div class="mb-3"> -->
             <label for="exampleFormControlTextarea1" class="form-label">User Name</label>
             <input name="username" class="form-control" id="exampleFormControlTextarea1" rows="1" placeholder=<?php echo $_SESSION["username"]?>>
             <label for="exampleFormControlTextarea2" class="form-label">Real Name</label>
@@ -134,14 +147,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <label for="exampleFormControlTextarea7" class="form-label">Description</label>
             <textarea name="description" class="form-control" id="exampleFormControlTextarea7" rows="1"></textarea>
             
-        </div>
+        <!-- </div> -->
         <button class="w-60 btn btn-lg btn-primary" type="submit">Submit</button>
           <hr class="my-4">
           <small class="text-muted">Enter all the fields above.</small>
     </form>
     </div>
 
-
+    <div class="empty-space"></div>
 
     <div class="col-md-10 mx-auto col-lg-5">
     <form id="makeRequest"class="p-5 p-md-5 border rounded-6 bg-light"  action="make-request.php" method="post">
@@ -165,7 +178,25 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           <small class="text-muted">Enter all the fields above.</small>
     </form>
     </div>
+    
+    <div class="empty-space"></div>
 
+    <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+        </a>
+        <span class="text-muted">Code Buddies; 2021 Company, Inc</span>
+      </div>
+  
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+      </ul>
+    </footer>
+    </div>
 
 
 

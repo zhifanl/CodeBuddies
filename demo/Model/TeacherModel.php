@@ -8,7 +8,8 @@ class TeacherModel extends Database
    
         $result=$this->getTeacher(10);
                             if(count ($result) > 0){
-                                echo '<h2 class="pull-left">List of Teachers</h2>';
+                                echo '<h2 class="table-title">List of Teachers</h2>';
+                                echo '<div class="courses">';
                                 echo '<table class="table table-bordered table-striped">';
                                     echo "<thead>";
                                         echo "<tr>";
@@ -30,6 +31,7 @@ class TeacherModel extends Database
                                     }
                                     echo "</tbody>";                            
                                 echo "</table>";
+                                echo '</div>';
                             } else{
                                 echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
                             }

@@ -109,13 +109,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/table-style.css">
+
     <style>
         body{ font: 14px sans-serif; }
         .wrapper{ width: 360px; padding: 20px; }
     </style>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="empty-space"></div>
+
+    <div class="wrapper mx-auto mt-5">
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>
 
@@ -141,6 +145,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <p>Don't have an account? <a href="index.php">Sign up now</a>.</p>
         </form>
+    </div>
+
+    <div class="large-empty-space"></div>
+    
+
+
+
+    <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+        </a>
+        <span class="text-muted">Code Buddies; 2021 Company, Inc</span>
+      </div>
+  
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+      </ul>
+    </footer>
     </div>
 </body>
 </html>
