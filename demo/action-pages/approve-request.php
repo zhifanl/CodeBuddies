@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require __DIR__ . "/inc/bootstrap.php";
+require __DIR__ . "/../inc/bootstrap.php";
 require PROJECT_ROOT_PATH . "/Controller/api/RequestController.php";
 require PROJECT_ROOT_PATH . "/Controller/api/OrderListController.php";
 $id=$_GET['id'];//id for the row that is being approved, will get its content and add to user's list

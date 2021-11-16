@@ -37,8 +37,8 @@ class OrderListModel extends Database
                                             echo "<td>" . $row['salary'] . "</td>";
 
                                             echo "<td>";
-                                                echo '<a href="approve-request.php?id='. $row['order_id'] .'" class="mr-3" title="Approve request" data-toggle="tooltip"><span class="fa fa-check"></span></a>';
-                                                echo '<a href="delete-request.php?order_id='. $row['order_id'] .'" title="Ignore request" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                                echo '<a href="./action-pages/approve-request.php?id='. $row['order_id'] .'" class="mr-3" title="Approve request" data-toggle="tooltip"><span class="fa fa-check"></span></a>';
+                                                echo '<a href="./action-pages/delete-request.php?order_id='. $row['order_id'] .'" title="Ignore request" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                             echo "</td>";
                                         echo "</tr>";
                                     }

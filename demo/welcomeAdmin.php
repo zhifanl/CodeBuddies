@@ -46,25 +46,19 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </head>
 
     <body>
-      <div class="container">
-          <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-          <a href="./index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-              <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-              <span class="fs-4">Code Buddies</span>
-          </a>
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="./index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+                <span class="fs-4" >Code Buddies</span>
+            </a>
 
-          <ul class="nav nav-pills">
-              <li class="nav-item"><a href="./" class="nav-link active" aria-current="page">Home</a></li>
-              <li class="nav-item"><a href="./courses.php" class="nav-link">Courses</a></li>
-              <li class="nav-item"><a href="./about.php" class="nav-link">About</a></li>
-          </ul>
-          </header>
-      </div>
-        <h2 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
-        <p>
-            <!-- <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a> -->
-            <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
-        </p>
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="./welcome.php" class="nav-link active"><?php echo "Hi, ".htmlspecialchars($_SESSION["username"]); ?></a></li>
+                <li class="nav-item"><a href="./logout.php" class="nav-link">Log out</a></li>
+            </ul>
+            </header>
+        </div>
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">

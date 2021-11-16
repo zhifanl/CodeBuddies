@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require __DIR__ . "/inc/bootstrap.php";
+require __DIR__ . "/../inc/bootstrap.php";
 require PROJECT_ROOT_PATH . "/Controller/api/UserController.php";
 
 if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['username']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['university']) && isset($_POST['major'])&& isset($_POST['location'])&& isset($_POST['description']))

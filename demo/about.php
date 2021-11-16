@@ -59,13 +59,13 @@ require __DIR__ . "/inc/bootstrap.php";
         </div>
         <div class="carousel-inner pictures">
             <div class="carousel-item active pictures">
-                <img src="./about-us-1.jpg" class="about-us-img d-block "  alt="Link broken">
+                <img src="./img/about-us-1.jpg" class="about-us-img d-block "  alt="Link broken">
             </div>
             <div class="carousel-item pictures">
-                <img src="./about-us-2.jpg" class="about-us-img d-block "  alt="Link broken">
+                <img src="./img/about-us-2.jpg" class="about-us-img d-block "  alt="Link broken">
             </div>
             <div class="carousel-item pictures">
-                <img src="./about-us-3.jpg" class="about-us-img d-block "  alt="Link broken">
+                <img src="./img/about-us-3.jpg" class="about-us-img d-block "  alt="Link broken">
             </div>
             <button class="carousel-control-prev about-us-img" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>

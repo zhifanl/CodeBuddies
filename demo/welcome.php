@@ -127,7 +127,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </div>
     </div>
     <div class="col-md-10 mx-auto col-lg-5">
-    <form id="updateForm"class="p-5 p-md-5 border rounded-6 bg-light"  action="update-info.php" method="post">
+    <form id="updateForm"class="p-5 p-md-5 border rounded-6 bg-light"  action="./action-pages/update-info.php" method="post">
     <!-- <label for="updateForm" >Update your information</label> -->
     <h2 for="updateForm" class="table-title" >Update your information</h2>
 
@@ -157,7 +157,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div class="empty-space"></div>
 
     <div class="col-md-10 mx-auto col-lg-5">
-    <form id="makeRequest"class="p-5 p-md-5 border rounded-6 bg-light"  action="make-request.php" method="post">
+    <form id="makeRequest"class="p-5 p-md-5 border rounded-6 bg-light"  action="./action-pages/make-request.php" method="post">
     <!-- <label for="updateForm" >Update your information</label> -->
     <h2 for="updateForm" >Order your course here</h2>
 

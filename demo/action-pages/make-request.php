@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require __DIR__ . "/inc/bootstrap.php";
+require __DIR__ . "/../inc/bootstrap.php";
 require PROJECT_ROOT_PATH . "/Controller/api/RequestController.php";
 
 
