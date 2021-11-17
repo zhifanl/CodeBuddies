@@ -140,6 +140,31 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
     <div class='b-example-divider'></div>
 
+    <div class="col-md-10 mx-auto col-lg-5">
+    <form id="makeRequest"class="p-5 p-md-5 border rounded-6 bg-light"  action="./action-pages/add-appointment.php" method="post">
+    <!-- <label for="updateForm" >Update your information</label> -->
+    <h2 for="updateForm" >Add Appointment Here</h2>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1"  class="form-label">Email</label>
+            <input name="email" type="email" class="form-control" id="exampleFormControlTextarea1" rows="1" placeholder="Enter student email">
+            <label for="exampleFormControlTextarea2" class="form-label">User Name</label>
+            <textarea name="user_name" class="form-control" id="exampleFormControlTextarea2" rows="1" placeholder="Enter student name"></textarea>
+            <label for="exampleFormControlTextarea3" class="form-label">Teacher Name</label>
+            <textarea name="teacher_name" class="form-control" id="exampleFormControlTextarea3" rows="1" placeholder="Enter teacher name"></textarea>
+            <label for="exampleFormControlTextarea4" class="form-label">Course Name</label>
+            <textarea name="course_name" class="form-control" id="exampleFormControlTextarea4" rows="1" placeholder="Enter course name"></textarea>
+            <label for="exampleFormControlTextarea4" class="form-label">Date and Time</label>
+            <textarea name="date" class="form-control" id="exampleFormControlTextarea4" rows="1" placeholder="Enter date of appointment"></textarea>
+            
+            
+        </div>
+        <button class="w-60 btn btn-lg btn-primary" type="submit">Submit</button>
+          <hr class="my-4">
+          <small class="text-muted">Enter all the fields above.</small>
+    </form>
+    </div>
+
     <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
       <div class="col-md-4 d-flex align-items-center">
@@ -162,20 +187,3 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </body>
 </html>
 
-
-<!-- <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-  </div> -->

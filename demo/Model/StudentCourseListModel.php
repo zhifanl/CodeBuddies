@@ -56,6 +56,33 @@ class StudentCourseListModel extends Database
         return $this->select("SELECT * FROM student_course_list WHERE student_id=?", ["i",$_SESSION['id']]); // need to have where id = ?
     }
 
+
+    public function checkDuplicateOrder()
+    {
+        $student_id = $_POST['student_id'];
+        $tuition_fee = $_POST['tuition_fee'];
+        $course_name = $_POST['course_name'];
+        $start_date = $_POST['start_date'];
+        $end_date = $_POST['end_date'];
+        $teacher_name = $_POST['teacher_name'];
+        $query="SELECT * FROM student_course_list WHERE student_id='$student_id' AND tuition_fee='$tuition_fee' AND course_name='$course_name' AND teacher_name='$teacher_name'";
+        $stmt = $this->connection->prepare($query);
+            if ($stmt->execute() === TRUE) {
+                
+                $stmt->store_result();
+                // echo $stmt->num_rows;
+                $this->connection->close();
+                return $stmt->num_rows;                
+            } else {
+                $this->connection->close();
+                echo "Error selecting record: " .$this->connection->error;
+            }
+
+    }
+
+
+
+
     // param need to be in order: course_name, description
     public function updateStudentCourseList($student_id, $tuition_fee,$course_name,$start_date,$end_date,$teacher_name)
     {

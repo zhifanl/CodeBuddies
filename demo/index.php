@@ -275,11 +275,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           
             <input type="password" name="password" id="floatingPassword" placeholder="Password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
             <span class="invalid-feedback"><?php echo $password_err; ?></span>
+            <label for="floatingPassword">Password</label>
+
             
           </div>
 
           <div class="form-floating mb-3">
-                <input type="password" name="password" id="floatingPassword" placeholder="Password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+                <input type="password" name="confirm_password" id="floatingPassword" placeholder="Password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
                 <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
                 <label for="floatingPassword">Confirm Password</label>
           </div>

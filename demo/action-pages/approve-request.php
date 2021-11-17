@@ -21,9 +21,17 @@ $_POST['end_date']=$end_date;
 $_POST['teacher_name']=$teacher_name;
 
 
+$checkDuplicate=new StudentCourseListModel();
+$result=$checkDuplicate->checkDuplicateOrder();
+// echo $result;
+if($result!=0){
+    echo "It is already added to student's list. No need to approve again now.";
+}else{
 $course=new StudentCourseListModel();
 $course->postStudentCourseList();
-
 echo "Approved successfully, Added to client's course list already. ";
+
+}
+
 ?>
 

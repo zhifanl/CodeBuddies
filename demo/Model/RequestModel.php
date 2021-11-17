@@ -8,7 +8,7 @@ class RequestModel extends Database
 {
     public function displayList(){
    
-        $result=$this->getRequest(100);
+        $result=$this->getRequest(10);
                             if(count ($result) > 0){
                                 echo '<h2 class="pull-left">Requests</h2>';
                                 echo '<table class="table table-bordered table-striped">';

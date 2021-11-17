@@ -120,6 +120,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     $lists=new StudentCourseListModel();// now it is displaying the whole list. need to modify it later(use a different method)
                     $lists->displayList();
 
+                    $appointmentList=new AppointmentModel(); // display a list of appointments
+                    $appointmentList->displayStudentAppointment();
+
                      
                     ?>
                 </div>
@@ -198,49 +201,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </footer>
     </div>
 
-
-
-
-    <!-- <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-20">
-                    <div class="mt-15 mb-15 clearfix">
-                        <!-- <a href="create.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Employee</a> -->
-                    <!-- </div>
-                    <?php
-                    require_once "./inc/bootstrap.php";
-                    require_once "./inc/config.php";
-                    require_once "./Model/RequestModel.php";
-                     $request=new RequestModel();
-                     $request->displayList();
-                    echo '<div class="b-example-divider"></div>';
-                    ?>
-                </div>
-            </div>        
-        </div>
-    </div>  -->
-
-
     <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
 
 
-<!-- <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-  </div> -->
