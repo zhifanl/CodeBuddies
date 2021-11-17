@@ -62,6 +62,18 @@ class UserModel extends Database
         }
     }
 
+    public function getEmailByUsername($username)
+    {
+       $result=$this->select("SELECT * FROM users WHERE username=?", ["s",$username]);
+       // result is array here
+        //    echo count($result); 
+       foreach ($result as $row)
+       {
+        //    echo $row['ID'];
+       return $row['email'];
+        }
+    }
+
     public function getUsernameById($id)
     {
        $result=$this->select("SELECT * FROM users WHERE ID=?", ["s",$id]);

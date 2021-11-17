@@ -22,11 +22,13 @@ class TeacherModel extends Database
                                         echo "<tr>";
                                             echo "<td>" . $row['teacher_id'] . "</td>";
                                             echo "<td>" . $row['teacher_name'] . "</td>";
-                                            // echo "<td>";
+                                            if($_SESSION["admin"]==true){
+                                            echo "<td>";
                                             //     echo '<a href="read.php?id='. $row['id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
                                             //     echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            //     echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
-                                            // echo "</td>";
+                                                echo '<a href="./action-pages/delete-teacher.php?id='. $row['teacher_id'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                            echo "</td>";
+                                            }
                                         echo "</tr>";
                                     }
                                     echo "</tbody>";                            
@@ -42,6 +44,18 @@ class TeacherModel extends Database
         return $this->select("SELECT * FROM teacher LIMIT ?", ["i", $limit]);
     }
 
+
+    public function getTeacherNameById($id)
+    {
+       $result=$this->select("SELECT * FROM teacher WHERE teacher_id=?", ["i",$id]);
+       // result is array here
+        //    echo count($result); 
+       foreach ($result as $row)
+       {
+        //    echo $row['ID'];
+       return $row['teacher_name'];
+        }
+    }
     // param need to be in order: course_name, description
     public function updateTeacher($teacher_name,$admin_id)
     {

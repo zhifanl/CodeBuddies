@@ -268,7 +268,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             <input type="text" name="username"  id="floatingInput" placeholder="name@example.com" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
             <span class="invalid-feedback"><?php echo $username_err; ?></span>
-            <label for="floatingInput">username</label>
+            <label for="floatingInput">Username</label>
           </div>
 
           <div class="form-floating mb-3">

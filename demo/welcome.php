@@ -57,9 +57,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="./welcome.php" class="nav-link active"><?php echo "Hi, ".htmlspecialchars($_SESSION["username"]); ?></a></li>
                 <li class="nav-item"><a href="./logout.php" class="nav-link">Log out</a></li>
-                <li class="nav-item"><a href="./" class="nav-link" aria-current="page">Home</a></li>
-                <li class="nav-item"><a href="./courses.php" class="nav-link">Courses</a></li>
-                <li class="nav-item"><a href="./about.php" class="nav-link">About</a></li>
+                <!-- <li class="nav-item"><a href="./" class="nav-link" aria-current="page">Home</a></li> -->
+                <!-- <li class="nav-item"><a href="./courses.php" class="nav-link">Courses</a></li> -->
+                <!-- <li class="nav-item"><a href="./about.php" class="nav-link">About</a></li> -->
             </ul>
             </header>
         </div>
@@ -138,7 +138,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <label for="exampleFormControlTextarea1" class="form-label">User Name</label>
             <input name="username" class="form-control" id="exampleFormControlTextarea1" rows="1" placeholder=<?php echo $_SESSION["username"]?>>
             <label for="exampleFormControlTextarea2" class="form-label">Real Name</label>
-            <textarea name="name" class="form-control" id="exampleFormControlTextarea2" rows="1"></textarea>
+            <textarea name="name" class="form-control" id="exampleFormControlTextarea2" rows="1" ></textarea>
             <label for="exampleFormControlTextarea3" class="form-label">Email</label>
             <textarea name="email" class="form-control" id="exampleFormControlTextarea3" rows="1"></textarea>
             <label for="exampleFormControlTextarea4" class="form-label">University</label>
@@ -166,7 +166,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
         <div class="mb-3">
             <label for="exampleFormControlTextarea1"  class="form-label">Email</label>
-            <input name="email" type="email" class="form-control" id="exampleFormControlTextarea1" rows="1" placeholder=<?php echo $_SESSION["email"]?>>
+            <input name="email" type="email" class="form-control" id="exampleFormControlTextarea1" rows="1" placeholder=
+            <?php 
+              $user=new UserModel();
+              $email=$user->getEmailByUsername($_SESSION["username"]);
+              echo $email;
+            ?>>
             <label for="exampleFormControlTextarea2" class="form-label">User Name</label>
             <textarea name="client_name" class="form-control" id="exampleFormControlTextarea2" rows="1" placeholder=<?php echo $_SESSION["username"]?>></textarea>
             <label for="exampleFormControlTextarea3" class="form-label">Teacher Name</label>
