@@ -31,9 +31,9 @@ class SoftwareCoursesModel extends Database
                                         // echo $_SESSION["admin"];
                                         if($_SESSION["admin"]==true){
                                         echo "<td>";
-                                            echo '<a href="read.php?id='. $row['id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
-                                            echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="../action-pages/delete-course.php?id='. $row['id'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                            // echo '<a href="read.php?id='. $row['id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
+                                            // echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                            echo '<a href="./action-pages/delete-course.php?id='. $row['id'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                         echo "</td>";
                                         }
                                     echo "</tr>";
@@ -58,6 +58,15 @@ class SoftwareCoursesModel extends Database
         }
     }
 
+    public function getCourseById($id)
+    {
+       $result=$this->select("SELECT * FROM software_courses WHERE id=?", ["i",$id]);
+       
+       foreach ($result as $row)
+       {
+       return $row;
+        }
+    }
 
     public function getSoftwareCourses($limit)
     {

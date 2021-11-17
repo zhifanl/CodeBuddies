@@ -26,7 +26,7 @@ class UserModel extends Database
                                     echo "<tbody>";
                                     foreach ($result as $row){
                                         echo "<tr>";
-                                            echo "<td>" . $row['id'] . "</td>";
+                                            echo "<td>" . $row['ID'] . "</td>";
                                             echo "<td>" . $row['username'] . "</td>";
                                             echo "<td>" . $row['name'] . "</td>";
                                             echo "<td>" . $row['email'] . "</td>";
@@ -35,9 +35,9 @@ class UserModel extends Database
                                             echo "<td>" . $row['location'] . "</td>";
                                             echo "<td>" . $row['description'] . "</td>";
                                             echo "<td>";
-                                                echo '<a href="read.php?id='. $row['id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
-                                                echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                                echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                                // echo '<a href="read.php?id='. $row['id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
+                                                // echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                                echo '<a href="./action-pages/delete-user.php?id='. $row['ID'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                             echo "</td>";
                                         echo "</tr>";
                                     }
@@ -59,6 +59,18 @@ class UserModel extends Database
        {
         //    echo $row['ID'];
        return $row['ID'];
+        }
+    }
+
+    public function getUsernameById($id)
+    {
+       $result=$this->select("SELECT * FROM users WHERE ID=?", ["s",$id]);
+       // result is array here
+        //    echo count($result); 
+       foreach ($result as $row)
+       {
+        //    echo $row['ID'];
+       return $row['username'];
         }
     }
 
