@@ -54,7 +54,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             </a>
 
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="./welcome.php" class="nav-link active"><?php echo "Hi, ".htmlspecialchars($_SESSION["username"]); ?></a></li>
+                <li class="nav-item"><a href="./welcomeAdmin.php" class="nav-link active"><?php echo "Hi, ".htmlspecialchars($_SESSION["username"]); ?></a></li>
                 <li class="nav-item"><a href="./logout.php" class="nav-link">Log out</a></li>
             </ul>
             </header>

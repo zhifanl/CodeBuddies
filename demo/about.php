@@ -31,6 +31,11 @@ require __DIR__ . "/inc/bootstrap.php";
       }
     </style>
     <link href="./css/about-us.css" rel="stylesheet">
+
+    <title>Add Map</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/map-style.css" />
+    <script src="./js/map.js"></script>
   </head>
   <body>
 <main>
@@ -50,7 +55,7 @@ require __DIR__ . "/inc/bootstrap.php";
     </header>
   </div>
 
-  <div class="container">
+  <!-- <div class="container">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators about-us-img">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -80,7 +85,26 @@ require __DIR__ . "/inc/bootstrap.php";
             <p>Our team consists of 3 members from schulich school of engineering.</p>
         </div>
     </div>
-   </div>
+   </div> -->
+
+
+  <body>
+    <div class="empty-space"></div>
+    <h4 class="map-title">Where we at</h4>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <div class="empty-space"></div>
+    <p class="introduction">Our team is made up with 3 software engineering students at the University of Calgary with 
+        professional experience in the job industry and school. All of our team members have excellent grades at school with GPA above 3.90 and
+        The solution we have devised is to provide clients with one on one tutoring sessions. 
+        This is to aid them when they struggle with a programming problem or if they need further clarification on high yield programming topics. 
+        In today’s remote technological age, most businesses are going online and that is exactly how we intend to conduct business. 
+        CodeBuddies will enable our clients to make a variety of choices; to make orders, select appointments, and talk to their mentors, ask any problems that they do not understand.
+
+    </p>
+
+   
+  
 
 
   
@@ -106,6 +130,11 @@ require __DIR__ . "/inc/bootstrap.php";
 
 
   <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+   <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+   <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZzIIBUxobXAOBRLDdFeKjlyIwmpt0F2I&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
 
       
   </body>
