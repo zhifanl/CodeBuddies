@@ -1,5 +1,5 @@
-# CodeBuddies
-## The platform to help you boost programming skills
+# 💻CodeBuddies💻
+## 🛠The platform to help you boost programming skills🛠
 
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
@@ -9,7 +9,7 @@
 - Team member: Zhifan Li, Tianfan Zhou, Taimoor Abrar
 
 
-## Features
+## 💡Features💡
 
 - Allow users to send request to learn courses via CodeBuddies website
 - User will receive email notification for the booked appointment with our teachers
@@ -19,7 +19,7 @@
 
 
 
-## Technology used
+## 💡Technology used💡
 
 
 - php
@@ -30,7 +30,7 @@
 
 
 
-## How to run it
+## 💡How to run it💡
 
 * Clone our repository
 * Download XAMPP
@@ -44,6 +44,6 @@
 
 
 
-## Development
+## 💡Development💡
 
 Want to contribute? Great!
