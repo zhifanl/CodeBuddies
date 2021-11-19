@@ -1,5 +1,5 @@
-# 💻CodeBuddies💻
-## 🛠The platform to help you boost programming skills🛠
+# CodeBuddies💻
+## The platform to help you boost programming skills🛠
 
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
