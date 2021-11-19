@@ -1,5 +1,7 @@
 # CodeBuddies💻
-![alt text](https://github.com/zhifanl/CodeBuddies/demo/img/CodeBuddies.png?raw=true)
+![alt text](https://github.com/zhifanl/CodeBuddies/blob/main/demo/img/CodeBuddies.png?raw=true)
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
 
 ## The platform to help you boost programming skills🛠
 
