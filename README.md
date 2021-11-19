@@ -1,4 +1,6 @@
 # CodeBuddies💻
+![alt text](https://github.com/zhifanl/CodeBuddies/demo/img/CodeBuddies.png?raw=true)
+
 ## The platform to help you boost programming skills🛠
 
 
