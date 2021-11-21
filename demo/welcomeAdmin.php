@@ -89,7 +89,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </head>
 <body>
     <div class="col-md-10 mx-auto col-lg-5">
-        <form id="sendEmail"class="p-5 p-md-5 border rounded-6 bg-light"  action="action-pages/form-to-email.php" method="post">
+        <form id="sendEmail"class="p-5 p-md-5 border rounded-6 bg-light"  action="form-to-email.php" method="post">
         <!-- <label for="updateForm" >Update your information</label> -->
         <h2 for="sendEmail" >Send Email</h2>
 
