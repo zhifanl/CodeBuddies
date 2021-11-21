@@ -126,9 +126,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     $listUser=new UserModel();  // see users
                     $listUser->displayList();
 
-                    // $lists=new StudentCourseListModel(); // now it is displaying the whole list of courses for all users.
-                    // $lists->displayList();
-
                     $appointmentList=new AppointmentModel(); // display a list of appointments
                     $appointmentList->displayList();
 
@@ -164,6 +161,19 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           <small class="text-muted">Enter all the fields above.</small>
     </form>
     </div>
+
+
+    <form method="post" name="myemailform" action="action-pages/form-to-email.php">
+
+    Enter Name:	<input type="text" name="name">
+
+    Enter Email Address:	<input type="text" name="email">
+
+    Enter Message:	<textarea name="message"></textarea>
+
+    <input type="submit" value="Send Form">
+    </form>
+
 
     <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">

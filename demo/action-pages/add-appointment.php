@@ -11,39 +11,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['email']) && isset($_POS
         $request=new AppointmentModel();
         $result=$request->postAppointment(); //add to Request DB
         echo $result;
-
-    //     $temp_user=new UserModel();
-    //     echo '<br>';
-    //     echo "Dear ";
-    //     echo $_POST['client_name'];
-        
-
-    //     $client_id=$temp_user->getIdByUsername($_POST['client_name']);
-    //     $client_name=$temp_user->getRealNameByUsername($_POST['client_name']);
-        
+        echo '<br></br>';
+        echo "<a class='w-50 btn btn-lg btn-primary' href='../welcomeAdmin.php'>Go Back</button>";
 
 
-    //     $temp_course=new SoftwareCoursesModel();
-    //     $tuition_fee=$temp_course->getFeeByName($_POST['course_name']);
-    //     echo "got tutiton fee : ";
-    //     echo $tuition_fee;
-    //     // echo $client_id;
-    //     $_POST['student_name']=$client_name;
-    //     $_POST['student_id']=$client_id;
-    //     // $_POST['teacher_name']=$_POST['teacher_name'];
-    //     // $_POST['course_name']=$_POST['course_name'];
-    //     $_POST['start_date']='NULL';
-    //     $_POST['end_date']='NULL';
-    //     $_POST['salary']=$tuition_fee;
-
-
-    //     $order=new OrderListModel();
-    //     $order->postOrderList();
-    //     echo '<br>';
-    //     echo "Your oder has been added to Admin's order list, it will be confirmed soon ."; 
-    // }else{
-    //     echo "Form not filled completed, enter them again";
-    // }
     }
     }
 

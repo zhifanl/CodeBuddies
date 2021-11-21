@@ -19,6 +19,8 @@ class RequestModel extends Database
                                             echo "<th>Student name</th>";
                                             echo "<th>Teacher name</th>";
                                             echo "<th>Course name</th>";
+                                            echo "<th>Operate</th>";
+
                                         echo "</tr>";
                                     echo "</thead>";
                                     echo "<tbody>";

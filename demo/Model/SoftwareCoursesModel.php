@@ -10,6 +10,9 @@ class SoftwareCoursesModel extends Database
                     //  echo "<p>".$result."</p>";
                         if(count ($result) > 0){
                             echo '<h2 class="table-title">Courses</h2>';
+                            if($_SESSION["admin"]==true){
+                                echo "<button type='button' class='btn btn-primary btn-lg px-4 me-md-2' onclick='location.href=\"action-pages/add-course.php\"' >Add Course</button>";
+                            }
                             echo '<div class="courses">';
                             echo '<table class="table table-bordered table-striped">';
                                 echo "<thead>";
@@ -18,6 +21,9 @@ class SoftwareCoursesModel extends Database
                                         echo "<th>Course Name</th>";
                                         echo "<th>Description</th>";
                                         echo "<th>Tuition Fee</th>";
+                                        if($_SESSION["admin"]==true){
+                                            echo "<th>Opereate</th>";
+                                        }
 
                                     echo "</tr>";
                                 echo "</thead>";
@@ -122,17 +128,44 @@ class SoftwareCoursesModel extends Database
     public function postSoftwareCourses(){
         $rest_json = file_get_contents('php://input');
 
-        $_POST = json_decode($rest_json, true);
+        $data = json_decode($rest_json, true);
 
 
         $stmt = $this->connection->prepare("INSERT INTO software_courses(course_name, description,tuition_fee) VALUES (?, ?,?)");
 
-        /* Prepared statement, stage 2: bind and execute */
-        $course_name = $_POST['course_name'];
-        $description = $_POST['description'];
-        $tuition_fee = $_POST['tuition_fee'];
-
         $stmt->bind_param("ssi", $course_name, $description,$tuition_fee); // "is" means that $id is bound as an integer and $label as a string
+
+        /* Prepared statement, stage 2: bind and execute */
+        if(!isset($data['course_name']) || !isset($data['description'])){
+            if($_POST['course_name']!='' && $_POST['description']!='')
+            {
+                $course_name = $_POST['course_name'];
+                $description = $_POST['description'];
+                $tuition_fee = $_POST['tuition_fee'];
+
+                
+            }else{
+                echo "You did not completely fill the form, please do that again.";
+                $this->connection->close();
+                return;
+            }
+
+        }
+        else{
+            if($data['course_name']!='' && $data['description']!='')
+            {
+                $course_name = $data['course_name']; 
+                $description = $data['description']; 
+                $tuition_fee = $data['tuition_fee']; 
+
+            }else{
+                echo "You did not completely fill the form, please do that again.";
+                $this->connection->close();
+                return;
+            }
+            
+        }
+
         
         if($stmt->execute()===TRUE){
 

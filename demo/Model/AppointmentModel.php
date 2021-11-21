@@ -7,7 +7,8 @@ class AppointmentModel extends Database
    
         $result=$this->getAppointment(100);
                             if(count ($result) > 0){
-                                echo '<h2 class="pull-left">Appointments</h2>';
+                                echo '<h2 class="table-title pull-left">Appointments</h2>';
+                                echo '<div class="appointment-list">';
                                 echo '<table class="table table-bordered table-striped">';
                                     echo "<thead>";
                                         echo "<tr>";
@@ -18,6 +19,9 @@ class AppointmentModel extends Database
                                             echo "<th>teacher name</th>";
                                             echo "<th>course name</th>";
                                             echo "<th>date</th>";
+                                            if($_SESSION["admin"]==true){
+                                                echo "<th>Opereate</th>";
+                                            }
 
                                             
                                         echo "</tr>";
@@ -40,6 +44,7 @@ class AppointmentModel extends Database
                                     }
                                     echo "</tbody>";                            
                                 echo "</table>";
+                                echo '</div>';
                                 // Free result set
                             } else{
                                 echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
@@ -51,8 +56,10 @@ class AppointmentModel extends Database
    
         $result=$this->getAppointmentByName();
                             if(count ($result) > 0){
-                                echo '<h2 class="pull-left">Appointments</h2>';
-                                echo '<table class="table table-bordered table-striped">';
+                                echo "<div class='appointment-list'>";
+
+                                echo '<h2 class="table-title pull-left">Appointments</h2>';
+                                echo '<table class="table  table-bordered table-striped">';
                                     echo "<thead>";
                                         echo "<tr>";
                                             echo "<th>#</th>";
@@ -62,6 +69,8 @@ class AppointmentModel extends Database
                                             echo "<th>teacher name</th>";
                                             echo "<th>course name</th>";
                                             echo "<th>date</th>";
+                                            echo "<th>operate</th>";
+
 
                                             
                                         echo "</tr>";
@@ -84,6 +93,7 @@ class AppointmentModel extends Database
                                     }
                                     echo "</tbody>";                            
                                 echo "</table>";
+                                echo '</div>';
                                 // Free result set
                             } else{
                                 echo '<div class="alert alert-danger"><em>No records were found.</em></div>';

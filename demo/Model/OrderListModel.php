@@ -22,6 +22,8 @@ class OrderListModel extends Database
                                             echo "<th>Start Date</th>";
                                             echo "<th>End Date</th>";
                                             echo "<th>Tutition Fee</th>";
+                                            echo "<th>Operate</th>";
+
                                         echo "</tr>";
                                     echo "</thead>";
                                     echo "<tbody>";

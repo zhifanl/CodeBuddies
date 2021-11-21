@@ -6,7 +6,6 @@ class StudentCourseListModel extends Database
     public function displayList(){
    
         $result=$this->getStudentCourseListById(10);
-                        //  echo "<p>".$result."</p>";
                             if(count ($result) > 0){
                                 echo '<h2 class="table-title">List of Courses you have</h2>';
                                 echo '<div class="courses-list">';
@@ -20,6 +19,7 @@ class StudentCourseListModel extends Database
                                             echo "<th>Tuition Fee</th>";
                                             echo "<th>Start Date</th>";
                                             echo "<th>End Date</th>";
+                                            echo "<th>Operate</th>";
                                         echo "</tr>";
                                     echo "</thead>";
                                     echo "<tbody>";
@@ -33,9 +33,7 @@ class StudentCourseListModel extends Database
                                             echo "<td>" . $row['start_date'] . "</td>";
                                             echo "<td>" . $row['end_date'] . "</td>";
                                             echo "<td>";
-                                                echo '<a href="read.php?id='. $row['id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
-                                                echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                                echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                            // echo '<a href="./action-pages/delete-own-course-list/////.php?ord////er_id='. $row['ord///er_id'] .'" title="Ignore request" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                             echo "</td>";
                                         echo "</tr>";
                                     }

@@ -32,6 +32,8 @@ $course->postStudentCourseList();
 echo "Approved successfully, Added to client's course list already. ";
 
 }
+echo '<br></br>';
+echo "<a class='w-50 btn btn-lg btn-primary' href='../welcomeAdmin.php'>Go Back</button>";
 
 ?>
 

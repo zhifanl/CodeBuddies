@@ -45,5 +45,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['email']) && isset($_POS
         echo "Form not filled completed, enter them again";
     }
     }
+    echo '<br></br>';
+    echo "<a class='w-50 btn btn-lg btn-primary' href='../welcome.php'>Go Back</button>";
 
 ?>

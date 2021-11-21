@@ -18,6 +18,8 @@ $_GET['student_id']=$student_id;
 $_GET['course_name']=$course_name;
 
 $course->deleteStudentCourseList($course_name ,$student_id);
+echo '<br></br>';
+echo "<a class='w-50 btn btn-lg btn-primary' href='../welcomeAdmin.php'>Go Back</button>";
 
 ?>
 

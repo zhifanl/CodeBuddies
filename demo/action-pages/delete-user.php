@@ -8,5 +8,8 @@ echo $_GET['username'];
 $result=$user->deleteUser();
 echo $result;
 
+echo '<br></br>';
+echo "<a class='w-50 btn btn-lg btn-primary' href='../welcomeAdmin.php'>Go Back</button>";
+
 ?>
 

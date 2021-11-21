@@ -12,5 +12,8 @@ $_GET['course_name']=$course_name;
 echo $_GET['course_name'];
 $course_temp->deleteSoftwareCourses();
 
+echo '<br></br>';
+echo "<a class='w-50 btn btn-lg btn-primary' href='../welcomeAdmin.php'>Go Back</button>";
+
 ?>
 

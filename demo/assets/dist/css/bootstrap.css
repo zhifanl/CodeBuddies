@@ -1964,6 +1964,7 @@ progress {
   margin-bottom: 1rem;
   color: #212529;
   vertical-align: top;
+  
   border-color: #dee2e6;
 }
 .table > :not(caption) > * > * {

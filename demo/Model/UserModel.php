@@ -21,6 +21,9 @@ class UserModel extends Database
                                             echo "<th>major</th>";
                                             echo "<th>location</th>";
                                             echo "<th>description</th>";
+                                            if($_SESSION["admin"]==true){
+                                                echo "<th>Opereate</th>";
+                                            }
                                         echo "</tr>";
                                     echo "</thead>";
                                     echo "<tbody>";
