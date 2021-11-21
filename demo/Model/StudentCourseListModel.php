@@ -33,7 +33,7 @@ class StudentCourseListModel extends Database
                                             echo "<td>" . $row['start_date'] . "</td>";
                                             echo "<td>" . $row['end_date'] . "</td>";
                                             echo "<td>";
-                                            // echo '<a href="./action-pages/delete-own-course-list/////.php?ord////er_id='. $row['ord///er_id'] .'" title="Ignore request" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                            echo '<a href="./action-pages/delete-own-course-list.php?student_id='. $row['student_id'] .'&course_name='. $row['course_name'] .'" title="Ignore request" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                             echo "</td>";
                                         echo "</tr>";
                                     }
