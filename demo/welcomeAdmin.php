@@ -88,7 +88,27 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </script>
 </head>
 <body>
+    <div class="col-md-10 mx-auto col-lg-5">
+        <form id="sendEmail"class="p-5 p-md-5 border rounded-6 bg-light"  action="action-pages/form-to-email.php" method="post">
+        <!-- <label for="updateForm" >Update your information</label> -->
+        <h2 for="sendEmail" >Send Email</h2>
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1"  class="form-label">Name of User</label>
+                <textarea name="name" class="form-control" id="exampleFormControlTextarea2" rows="1" placeholder="Enter Student Name"></textarea>
+                <label for="exampleFormControlTextarea2" class="form-label">Email of User</label>
+                <input name="email" type="email" class="form-control" id="exampleFormControlTextarea1" rows="1" placeholder="Enter Student Email">
+                <label for="exampleFormControlTextarea3" class="form-label">Message</label>
+                <textarea name="message" class="form-control" id="exampleFormControlTextarea3" rows="1" placeholder="Enter Message you want to send"></textarea>
+            </div>
+            <button class="w-60 btn btn-lg btn-primary" type="submit">Submit</button>
+            <hr class="my-4">
+            <small class="text-muted">Enter all the fields above.</small>
+        </form>
+    </div>
     
+    <div class="empty-space"></div>
+
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -162,17 +182,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </form>
     </div>
 
+    <div class="empty-space"></div>
 
-    <form method="post" name="myemailform" action="action-pages/form-to-email.php">
-
-    Enter Name:	<input type="text" name="name">
-
-    Enter Email Address:	<input type="text" name="email">
-
-    Enter Message:	<textarea name="message"></textarea>
-
-    <input type="submit" value="Send Form">
-    </form>
+    
 
 
     <div class="container">
