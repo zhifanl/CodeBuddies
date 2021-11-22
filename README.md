@@ -30,6 +30,7 @@
 - CSS 
 - Javascript
 - MySQL
+- SendGrid API
 
 
 
