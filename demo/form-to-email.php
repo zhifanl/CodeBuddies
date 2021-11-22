@@ -7,11 +7,11 @@ $message = $_POST['message'];
 
 echo "About to send ".$visitor_email." an email. ";
 $email = new \SendGrid\Mail\Mail();
-$email->setFrom("tom@aishading.com", "CodeBuddies Admin");
+$email->setFrom("zhifanli2000@gmail.com", "CodeBuddies Admin");
 $email->setSubject("Message From CodeBuddies");
 $email->addTo($visitor_email, "User: ".$name);
 $email->addContent("text/plain", $message);
-echo getenv('SENDGRID_API_KEY');
+
 $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
 try {
     $response = $sendgrid->send($email);

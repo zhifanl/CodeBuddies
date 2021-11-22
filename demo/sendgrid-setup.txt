@@ -1,1 +1,5 @@
 sudo chmod -R 0755 sendgrid-php
+At XAMPP httpd.config file, put:SetEnv SENDGRID_API_KEY YOUR_API_KEY at the end of the file, and change the name of sender in the form-to-email.php file.
+echo "export SENDGRID_API_KEY='YOUR_API_KEY'" > sendgrid.env
+echo "sendgrid.env" >> .gitignore
+source ./sendgrid.env
