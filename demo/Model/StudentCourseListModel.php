@@ -4,7 +4,7 @@ require_once  PROJECT_ROOT_PATH . "/Model/Database.php";
 class StudentCourseListModel extends Database
 {
     public function displayList(){
-   
+        // echo $_SESSION['id'];
         $result=$this->getStudentCourseListById(10);
                             if(count ($result) > 0){
                                 echo '<h2 class="table-title">List of Courses you have</h2>';
