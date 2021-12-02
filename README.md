@@ -43,6 +43,7 @@
 * Go to browse to enter ``http:localhost{{your port#}}/phpmyadmin``, then create a new database called `471`, then import the sql file from the DB_Backup folder, that will be our database for the website. 
 * Now you can access the website via ``http:localhost/demo``
 * If it does not work, make sure the port number is correct (you will know which port the Apache server is using by finding it on XAMPP, mine is 80, someone's port is 8080), then try ``http:localhost:{{your port#}}/demo``
+* To use sending email features, you need to go to XAMPP appilcation folder: xamppfiles/etc, then go to httpd.config file and add ``SetEnv SENDGRID_API_KEY {{YOUR_API_KEY}}`` at the very end of the file and save it. Then restart XAMPP.
 * To login as Admin, simply create a new user on your localhost with username: admin
 * The webiste still has areas of improvement we are still developing it to make it look better :/
 
