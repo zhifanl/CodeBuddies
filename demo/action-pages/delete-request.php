@@ -2,22 +2,13 @@
 // Include config file
 require __DIR__ . "/../inc/bootstrap.php";
 
-$id=$_GET['order_id'];
-$order_temp=new OrderListModel();
-$resultOrder=$order_temp->getOrderById($id);
+$id=$_GET['request_id'];
+echo "Request: ".$id." is to be deleted.";
+$request_temp=new RequestModel();
 
-$student_id=$resultOrder['student_id'];
-$course_name=$resultOrder['course_name'];
+echo '<br></br>';
+echo $request_temp->deleteRequest();
 
-$order=new OrderListModel();
-$order->deleteOrderList();
-
-$course=new StudentCourseListModel();
-
-$_GET['student_id']=$student_id;
-$_GET['course_name']=$course_name;
-
-$course->deleteStudentCourseList($course_name ,$student_id);
 echo '<br></br>';
 echo "<a class='w-50 btn btn-lg btn-primary' href='../welcomeAdmin.php'>Go Back</button>";
 
