@@ -10,6 +10,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['course_name']) && isset
         echo $result;
         echo '<br></br>';
         echo "<a class='w-50 btn btn-lg btn-primary' href='../welcomeAdmin.php'>Go Back</button>";
+        }else{
+                echo "Form not filled completed, enter them again"; 
         }
 }
+
+
 ?>

@@ -6,13 +6,16 @@ class SoftwareCoursesModel extends Database
 
     public function displayList(){
    
-    $result=$this->getSoftwareCourses(10);
+    $result=$this->getSoftwareCourses(30);
                     //  echo "<p>".$result."</p>";
                         if(count ($result) > 0){
                             echo '<h2 class="table-title">Courses</h2>';
                             if($_SESSION["admin"]==true){
+                                echo "<div class='add-button'>";
                                 echo "<button type='button' class='btn btn-primary btn-lg px-4 me-md-2' onclick='location.href=\"action-pages/add-course.php\"' >Add Course</button>";
+                                echo "</div>";
                             }
+                            
                             echo '<div class="courses">';
                             echo '<table class="table table-bordered table-striped">';
                                 echo "<thead>";

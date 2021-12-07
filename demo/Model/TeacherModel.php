@@ -6,12 +6,16 @@ class TeacherModel extends Database
 
     public function displayList(){
    
-        $result=$this->getTeacher(10);
+        $result=$this->getTeacher(30);
                             if(count ($result) > 0){
+                                
                                 echo '<h2 class="table-title">List of Teachers</h2>';
                                 if($_SESSION["admin"]==true){
+                                    echo "<div class='add-button'>";
                                     echo "<button type='button' class='btn btn-primary btn-lg px-4 me-md-2' onclick='location.href=\"action-pages/add-teacher.php\"' >Add Teacher</button>";
+                                    echo "</div>";
                                 }
+                                
                                 echo '<div class="courses">';
                                 echo '<table class="table table-bordered table-striped">';
                                     echo "<thead>";
