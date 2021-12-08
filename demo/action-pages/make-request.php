@@ -5,9 +5,9 @@ require PROJECT_ROOT_PATH . "/Controller/api/RequestController.php";
 
 
 if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['email']) && isset($_POST['client_name']) && isset($_POST['teacher_name']) && isset($_POST['course_name']))
+{
+    if($_POST['email']!='' && $_POST['client_name']!='' && $_POST['teacher_name']!='' && $_POST['course_name']!='')
     {
-        if($_POST['email']!='' && $_POST['client_name']!='' && $_POST['teacher_name']!='' && $_POST['course_name']!='')
-        {
         $request=new RequestModel();
         $result=$request->postRequest(); //add to Request DB
         echo $result;
@@ -44,8 +44,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['email']) && isset($_POS
     }else{
         echo "Form not filled completed, enter them again";
     }
-    }
-    echo '<br></br>';
-    echo "<a class='w-50 btn btn-lg btn-primary' href='../welcome.php'>Go Back</button>";
+}
+echo '<br></br>';
+echo "<a class='w-50 btn btn-lg btn-primary' href='../welcome.php'>Go Back</button>";
 
 ?>

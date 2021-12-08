@@ -27,9 +27,9 @@ $result=$checkDuplicate->checkDuplicateOrder();
 if($result!=0){
     echo "It is already added to student's list. No need to approve again now.";
 }else{
-$course=new StudentCourseListModel();
-$course->postStudentCourseList();
-echo "Approved successfully, Added to client's course list already. ";
+    $course=new StudentCourseListModel();
+    $course->postStudentCourseList();
+    echo "Approved successfully, Added to client's course list already. ";
 
 }
 echo '<br></br>';

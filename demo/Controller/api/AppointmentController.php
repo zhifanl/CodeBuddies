@@ -98,7 +98,6 @@ class AppointmentController extends BaseController{
                 }
                 $result=$appointmentModel->deleteAppointment($id);
                 
-                
                 // send output
                 if (!$strErrorDesc) {
                     $this->sendOutput(

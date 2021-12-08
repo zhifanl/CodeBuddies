@@ -114,9 +114,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <div class="row">
                 <div class="col-md-20">
                     <div class="mt-15 mb-15 clearfix">
-                        
-                     
-                    <!-- <a href="create.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Employee</a> -->
                     </div>
                     <?php
                     require_once "./inc/bootstrap.php";
@@ -184,9 +181,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
     <div class="empty-space"></div>
 
-    
-
-
     <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
       <div class="col-md-4 d-flex align-items-center">
@@ -205,7 +199,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
     
     <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
 

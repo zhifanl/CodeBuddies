@@ -122,9 +122,7 @@ class AdminController extends BaseController{
             try {
                 $adminModel = new AdminModel();
 
-                
                 $result=$adminModel->postAdmin();
-                
                 
                 // send output
                 if (!$strErrorDesc) {

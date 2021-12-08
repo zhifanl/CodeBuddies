@@ -116,16 +116,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     $listTeacher=new TeacherModel();
                     $listTeacher->displayList();
 
-                    // echo "my id is ".$_SESSION['id']; // for debugging
                     $lists=new StudentCourseListModel();// now it is displaying the whole list. need to modify it later(use a different method)
                     $lists->displayList();
-
-                    // echo $_SESSION["username"];
 
                     $appointmentList=new AppointmentModel(); // display a list of appointments
                     $appointmentList->displayStudentAppointment();
 
-                     
                     ?>
                 </div>
             </div>        
@@ -163,7 +159,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
     <div class="col-md-10 mx-auto col-lg-5">
     <form id="makeRequest"class="p-5 p-md-5 border rounded-6 bg-light"  action="./action-pages/make-request.php" method="post">
-    <!-- <label for="updateForm" >Update your information</label> -->
     <h2 for="updateForm" >Order your course here</h2>
 
         <div class="mb-3">
