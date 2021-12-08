@@ -120,6 +120,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     $lists=new StudentCourseListModel();// now it is displaying the whole list. need to modify it later(use a different method)
                     $lists->displayList();
 
+                    // echo $_SESSION["username"];
+
                     $appointmentList=new AppointmentModel(); // display a list of appointments
                     $appointmentList->displayStudentAppointment();
 

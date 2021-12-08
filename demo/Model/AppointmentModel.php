@@ -102,7 +102,7 @@ class AppointmentModel extends Database
 
     public function getAppointmentByName()
     {
-        return $this->select("SELECT * FROM appointment WHERE username=?", ["i",$_SESSION["username"]]); // need to have where id = ?
+        return $this->select("SELECT * FROM appointment WHERE username=?", ["s",$_SESSION["username"]]); // need to have where id = ?
     }
 
 
