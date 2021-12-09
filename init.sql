@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 17, 2021 at 06:06 AM
+-- Generation Time: Nov 24, 2021 at 08:16 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -38,8 +38,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `password`) VALUES
-(1, 'admin', '$2y$10$QgeoE0hoGprB94/acclo2.yPerp1EdBkbKFRzv5JRASjnzeahfoli'),
-(2, 'admin', '$2y$10$aQukkUAVQm0nYkKLoIllcuEm67BXhYjoyBSOT.TriwC7Ego1UwnH2');
+(1, 'admin', '$2y$10$QgeoE0hoGprB94/acclo2.yPerp1EdBkbKFRzv5JRASjnzeahfoli');
 
 -- --------------------------------------------------------
 
@@ -49,6 +48,10 @@ INSERT INTO `admin` (`id`, `name`, `password`) VALUES
 
 CREATE TABLE `appointment` (
   `id` int(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `teacher_name` varchar(255) NOT NULL,
+  `course_name` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   `admin_id` int(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -57,8 +60,8 @@ CREATE TABLE `appointment` (
 -- Dumping data for table `appointment`
 --
 
-INSERT INTO `appointment` (`id`, `date`, `admin_id`) VALUES
-(1, '2021-11-8', 1);
+INSERT INTO `appointment` (`id`, `email`, `username`, `teacher_name`, `course_name`, `date`, `admin_id`) VALUES
+(19, 'zhifanli2000@gmail.com', 'zhifan', 'Moussavi', 'ENSF480', '2021 December 6th 2:00 pm', NULL);
 
 -- --------------------------------------------------------
 
@@ -116,14 +119,7 @@ CREATE TABLE `order_list` (
 --
 
 INSERT INTO `order_list` (`order_id`, `student_name`, `student_id`, `course_name`, `teacher_name`, `start_date`, `end_date`, `salary`, `admin_id`) VALUES
-(3, 'aaron li', 3, 'CPSC319', 'Jorg', '2021', '2022', 500, NULL),
-(4, 'aaron li', 3, 'CPSC319', 'Jorg', '2021', '2022', 500, NULL),
-(5, 'zhifan li', 3, 'CPSC319', 'Jorg', 'NULL', 'NULL', 0, NULL),
-(6, 'zhifan li', 3, 'ENSF409', 'jorg', 'NULL', 'NULL', 0, NULL),
-(7, 'zhifan li', 3, 'ENSF409', 'jorg', 'NULL', 'NULL', 0, NULL),
-(8, 'zhifan li', 3, 'ENSF409', 'jorg', 'NULL', 'NULL', 0, NULL),
-(19, 'zhifan', 3, 'ENGG233', 'rinnnnker', 'NULL', 'NULL', 200, NULL),
-(20, 'kai li', 3, 'CPSC319', 'Jorg', '2021', '2022', 500, NULL);
+(22, 'Zhifan Li', 13, 'ENSF480', 'Moussavi', 'NULL', 'NULL', 250, NULL);
 
 -- --------------------------------------------------------
 
@@ -145,23 +141,7 @@ CREATE TABLE `request` (
 --
 
 INSERT INTO `request` (`request_id`, `email`, `client_name`, `teacher_name`, `course_name`, `admin_id`) VALUES
-(1, 'zhifanli2000@gmail.com', 'CPSC319', 'zhifan', 'Zhifan-admin', NULL),
-(3, 'zhifanli2000@gmail.com', 'zhifan', 'Jorg', 'CPSC319', NULL),
-(20, 'zhifanli2000@gmail.com', 'zhifan', 'jorg', 'ENSF409', NULL),
-(23, 'zhifanli2000@gmail.com', 'zhifan', 'Tianfan Zhou', 'ENSF409', NULL),
-(24, 'zhifanli2000@gmail.com', 'zhifan', 'Tianfan Zhou', 'ENSF409', NULL),
-(25, 'zhifanli2000@gmail.com', 'zhifan', 'Tianfan Zhou', 'ENSF409', NULL),
-(26, 'zhifanli2000@gmail.com', 'zhifan', 'Tianfan Zhou', 'ENSF409', NULL),
-(27, 'zhifanli2000@gmail.com', 'zhifan', 'IDK', 'CPSC319', NULL),
-(28, 'zhifanli2000@gmail.com', 'zhifan', 'RINKER', 'ENGG201', NULL),
-(29, 'zhifanli2000@gmail.com', 'zhifan', 'JORG', 'CPSC457', NULL),
-(30, 'zhifanli2000@gmail.com', 'zhifan', 'rinker', 'CPSC457', NULL),
-(31, 'zhifanli2000@gmail.com', 'zhifan', 'rinkeraaa', 'CPSC457', NULL),
-(32, 'zhifanli2000@gmail.com', 'zhifan', 'rinkerrrrrr', 'CPSC457', NULL),
-(33, 'zhifanli2000@gmail.com', 'zhifan', 'rinkrrrrrrrrrr', 'CPSC457', NULL),
-(34, 'zhifanli2000@gmail.com', 'zhifan', 'riccjcjjc', 'CPSC457', NULL),
-(35, 'zhifanli2000@gmail.com', 'zhifan', 'rinnnnker', 'ENGG233', NULL),
-(36, 'zhifanli2000aaa@gmail.com', 'zhifan', 'Zhifan', 'CPSC319', NULL);
+(38, 'zhifanli2000@gmail.com', 'zhifan', 'Moussavi', 'ENSF480', NULL);
 
 -- --------------------------------------------------------
 
@@ -195,10 +175,16 @@ INSERT INTO `software_courses` (`id`, `course_name`, `description`, `tuition_fee
 (1, 'ENCM511', 'Embedded System interfacing', 600),
 (3, 'ENSF480', 'Principles of Software Design', 250),
 (4, 'CPSC457', 'Principles of OS', 500),
-(5, 'CPSC319', 'Data structures and Algorithms', 5),
-(6, 'ENCM369', 'Computer Organization', 150),
-(7, 'ENGG233', 'Computer fundamentals', 200),
-(8, 'ENGG233', 'Computer fundamentals', 200);
+(9, 'SENG401', 'Software Architecture', 200),
+(10, 'SENG471', 'Software Requirement Engineering', 500),
+(11, 'ENSF409', 'Principles of Software Development', 300),
+(12, 'SENG438', 'Software testing and reliability', 400),
+(13, 'SENG533', 'Software Performance Evaluation', 400),
+(14, 'SENG511', 'Software Process and Management', 500),
+(15, 'CPSC319', 'Data Structures and Algorithms', 200),
+(16, 'ENCM369', 'Computer Organization', 300),
+(17, 'CPSC471', 'Database Management Systems', 500),
+(18, 'CPSC441', 'Computer Networks', 400);
 
 -- --------------------------------------------------------
 
@@ -220,14 +206,7 @@ CREATE TABLE `student_course_list` (
 --
 
 INSERT INTO `student_course_list` (`student_id`, `tuition_fee`, `course_name`, `start_date`, `end_date`, `teacher_name`) VALUES
-(0, 50000, 'ENSF409', 'Jan 10 2022', 'Sep 20 2022', 'Jorg Denzinger'),
-(3, 500, 'ENSF480', 'Jan-10-2022', 'Sep-20-2022', 'Jorg Denzinger'),
-(3, 500, 'ENSF480', 'Jan-10-2022', 'Sep-20-2022', 'Jorg Denzinger'),
-(4, 20, 'CPSC311', NULL, NULL, 'JORG'),
-(3, 5, 'CPSC319', 'NULL', 'NULL', 'IDK'),
-(3, 500, 'CPSC319', '2021', '2022', 'Jorg'),
-(3, 200, 'ENGG233', 'NULL', 'NULL', 'rinnnnker'),
-(3, 500, 'ENSF480', 'Jan-10-2022', 'Sep-20-2022', 'Jorg Denzinger');
+(13, 250, 'ENSF480', 'NULL', 'NULL', 'Moussavi');
 
 -- --------------------------------------------------------
 
@@ -246,10 +225,12 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`teacher_id`, `teacher_name`, `admin_id`) VALUES
-(2, 'Jorg', NULL),
-(3, 'Norman', NULL),
-(4, 'Norman', NULL),
-(5, 'Norman', NULL);
+(7, 'Zhifan Li', NULL),
+(8, 'Tianfan Zhou', NULL),
+(9, 'Taimoor Abrar', NULL),
+(10, 'Jorg', NULL),
+(11, 'Chris', NULL),
+(12, 'Moussavi', NULL);
 
 -- --------------------------------------------------------
 
@@ -275,7 +256,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`ID`, `username`, `password`, `name`, `email`, `university`, `major`, `location`, `description`) VALUES
 (11, 'admin', '$2y$10$6lgvAgQqSsTPOl9WdyKCquQOHGySTQXNxAlb3YBoWQcpN5RSMLNZq', NULL, NULL, NULL, NULL, NULL, NULL),
-(13, 'zhifan', '$2y$10$kAHb6o6sbIpOb/2/xNZG6OQRFcppqxQSRMb7AhW7/r2kycPfcCr22', 'Zhifan Li', 'zhifanli2000@gmail.com', 'University of Calgary', 'Software Engineering', 'Calgary', 'I am a third year software engineering student at the UofC');
+(13, 'zhifan', '$2y$10$kAHb6o6sbIpOb/2/xNZG6OQRFcppqxQSRMb7AhW7/r2kycPfcCr22', 'Zhifan Li', 'zhifanli2000@gmail.com', 'University of Calgary', 'Software Engineering', 'Calgary', 'Third Year Student');
 
 -- --------------------------------------------------------
 
@@ -378,37 +359,37 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `order_list`
 --
 ALTER TABLE `order_list`
-  MODIFY `order_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `order_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `request`
 --
 ALTER TABLE `request`
-  MODIFY `request_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `request_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `software_courses`
 --
 ALTER TABLE `software_courses`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `teacher_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `teacher_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
