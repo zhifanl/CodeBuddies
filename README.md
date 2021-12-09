@@ -5,7 +5,7 @@
 ## The platform to help you boost programming skills🛠
 
 
-[![Build Status](https://app.travis-ci.com/zhifanl/Docker-CI-CD.svg?branch=main)
+![Build Status](https://app.travis-ci.com/zhifanl/Docker-CI-CD.svg?branch=main)
 
 ✨ ✨CodeBuddies is our CPSC471 Final Project✨ ✨
 
