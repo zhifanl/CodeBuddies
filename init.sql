@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 24, 2021 at 08:16 PM
+-- Generation Time: Dec 10, 2021 at 06:55 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -255,7 +255,6 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`ID`, `username`, `password`, `name`, `email`, `university`, `major`, `location`, `description`) VALUES
-(11, 'admin', '$2y$10$6lgvAgQqSsTPOl9WdyKCquQOHGySTQXNxAlb3YBoWQcpN5RSMLNZq', NULL, NULL, NULL, NULL, NULL, NULL),
 (13, 'zhifan', '$2y$10$kAHb6o6sbIpOb/2/xNZG6OQRFcppqxQSRMb7AhW7/r2kycPfcCr22', 'Zhifan Li', 'zhifanli2000@gmail.com', 'University of Calgary', 'Software Engineering', 'Calgary', 'Third Year Student');
 
 -- --------------------------------------------------------
@@ -359,7 +358,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `order_list`
@@ -389,7 +388,7 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
