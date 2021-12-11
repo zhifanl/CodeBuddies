@@ -7,7 +7,7 @@ $message = $_POST['message'];
 
 echo "About to send ".$visitor_email." an email. ";
 $email = new \SendGrid\Mail\Mail();
-$email->setFrom("zhifanli2000@gmail.com", "CodeBuddies Admin");
+$email->setFrom("zhifan.li@ucalgary.ca", "CodeBuddies Admin");
 $email->setSubject("Message From CodeBuddies");
 $email->addTo($visitor_email, "User: ".$name);
 $email->addContent("text/plain", $message);
